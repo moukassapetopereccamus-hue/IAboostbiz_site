@@ -1,235 +1,222 @@
 # Modifier le site soi-même
 
-Ce guide explique les 10 changements les plus probables. Pour chacun : le
-fichier à ouvrir, le texte EXACT à chercher, combien de fois il apparaît, et
-quoi mettre à la place.
+Tous les textes du site sont rangés dans UN SEUL fichier, sans code :
+
+    _data/textes.yml
+
+Vous n'avez jamais besoin d'ouvrir index.html (c'est le gabarit, il ne
+contient aucun texte) ni style.css (sauf pour la couleur, changement n° 7).
 
 
-## Avant de commencer : la méthode
+## La méthode, toujours la même
 
-1. Sur GitHub, ouvrez le dépôt IAboostbiz_site, cliquez sur le fichier
-   (par exemple index.html), puis sur le petit crayon « Edit this file ».
-2. Pour chercher un texte dans le fichier : cliquez dans le texte, puis
-   appuyez sur Ctrl + F (Cmd + F sur Mac). Tapez le texte à chercher.
-3. Changez le texte. Changez TOUTES les fois où il apparaît (le nombre est
-   donné ci-dessous) : si vous en oubliez une, le site sera incohérent.
-4. En bas, cliquez sur « Commit changes ». Le site se met à jour tout seul
-   en une à deux minutes.
+1. Sur GitHub, ouvrez le dépôt IAboostbiz_site, puis le dossier _data, puis le
+   fichier textes.yml.
+2. Cliquez sur le petit crayon « Edit this file ».
+3. Pour trouver un texte : cliquez dans le fichier, appuyez sur Ctrl + F
+   (Cmd + F sur Mac) et tapez quelques mots du texte.
+4. Modifiez le texte.
+5. En bas (ou en haut à droite), cliquez sur « Commit changes ». Le site se
+   met à jour tout seul en une à deux minutes.
 
-Trois règles pour ne rien casser :
+Le fichier est rangé dans l'ordre de la page, de haut en bas. Chaque partie
+commence par un titre entre deux lignes de tirets, par exemple :
 
-- Ne touchez qu'au texte. Ne supprimez jamais les signes < > " = / qui
-  entourent le texte.
-- Ce que vous voyez écrit &nbsp; est une espace qui ne se coupe pas en fin de
-  ligne (par exemple avant « : » ou entre « 15 » et « minutes »). Vous pouvez
-  la garder ou la remplacer par une espace normale : les deux marchent.
-- Les lignes entre <!-- et --> sont des commentaires : ils ne s'affichent pas
-  sur le site. Ils indiquent ce que contient chaque bloc.
+    #  1. ACCROCHE (le haut de la page)
 
-Si quelque chose ne va pas après une modification : sur GitHub, ouvrez
-l'onglet « Commits », cliquez sur votre dernière modification et choisissez
-« Revert » pour revenir en arrière.
+Chaque texte se trouve SOUS une étiquette qui finit par >- . Exemple :
+
+    accroche:
+      titre: >-
+        Votre business tourne même quand vous n'êtes pas disponible.
+
+Vous changez seulement la ligne du texte (la troisième ici). Vous ne touchez
+pas aux étiquettes (accroche:, titre:).
+
+
+## Les 4 règles pour ne rien casser
+
+1. Gardez le même décalage : le nouveau texte doit commencer exactement sous
+   le début de l'ancien (mêmes espaces au début de la ligne). Utilisez la
+   barre d'espace, jamais la touche Tab.
+2. Écrivez normalement : accents, apostrophes, deux-points, guillemets « »,
+   tout est permis. Le site ajoute tout seul les espaces correctes avant
+   « : » et « ? ».
+3. Un texte long peut tenir sur plusieurs lignes, toujours avec le même
+   décalage : le site le remet sur une seule ligne.
+4. Les lignes qui commencent par # sont des explications pour vous : elles
+   ne s'affichent pas sur le site.
+
+Si vous faites une erreur de décalage, GitHub ne publie pas la modification :
+l'ancien site reste en ligne, rien ne casse, et vous recevez un e-mail de
+GitHub « Page build failure ». Le message indique le numéro de la ligne en
+cause (par exemple « line 76 ») : sur GitHub, les numéros de ligne sont à
+gauche du texte. Corrigez le décalage de cette ligne, puis « Commit changes ». Pour
+revenir en arrière : onglet « Commits », votre dernière modification,
+bouton « Revert ».
 
 
 ## 1. Changer la grande phrase d'accroche
 
-Fichier : index.html
+Partie : 1. ACCROCHE
 
-Texte à chercher : n'êtes pas disponible
+Cherchez : n'êtes pas disponible
 
-Il apparaît 5 fois dans index.html : la grande phrase affichée en haut de la
-page, et 4 fois dans les lignes du haut du fichier qui servent à l'aperçu
-WhatsApp et Facebook.
+Ce texte apparaît 1 fois dans textes.yml (sous accroche: puis titre:).
+Remplacez la phrase. Elle change automatiquement partout : sur la page, dans
+l'onglet et dans l'aperçu WhatsApp.
 
-Quoi faire : remplacez la phrase complète « Votre business tourne même quand
-vous n'êtes pas disponible. » par la nouvelle, aux 5 endroits. Dans les lignes
-du haut, la phrase commence parfois par une minuscule (« votre business... ») :
-gardez ce style.
+Seule exception : l'image d'aperçu WhatsApp (assets/partage.png) contient la
+phrase écrite dans l'image. Voir le changement n° 10.
 
-Attention : l'image d'aperçu WhatsApp (assets/partage.png) contient aussi
-l'ancienne phrase. Voir le changement n° 10.
+Juste en dessous, sous_titre: est la phrase plus petite qui suit.
 
 
 ## 2. Changer le numéro WhatsApp
 
-Fichier : index.html
+Partie : COORDONNÉES
 
-Texte à chercher : 242069153296
+Cherchez : whatsapp_numero
 
-Il apparaît 6 fois : les 4 boutons, le lien WhatsApp du pied de page, et la
-fiche pour Google (où il est écrit +242069153296).
+Il apparaît 1 fois. Mettez le nouveau numéro sous cette étiquette, en
+chiffres seulement : sans +, sans espaces. Au Congo-Brazzaville, on garde
+le 0 après 242 : le +242 06 915 32 96 s'écrit 242069153296.
 
-Quoi mettre à la place : le nouveau numéro, au format international, SANS le
-signe +, SANS espaces et SANS le 0 qui suit parfois l'indicatif. Exemple :
-le 06 123 45 67 au Congo s'écrit 242061234567.
+Puis cherchez : whatsapp_affiche
 
-Puis cherchez aussi : +242 06 915 32 96
+Il apparaît 1 fois. C'est le numéro tel qu'il s'affiche en bas de la page :
+écrivez-le avec des espaces, par exemple +242 06 915 32 96.
 
-Il apparaît 1 fois : c'est le numéro affiché en bas de la page. Remplacez-le
-par le nouveau numéro, écrit comme vous voulez qu'il s'affiche.
+Les 4 boutons et le bas de page se mettent à jour tout seuls.
+
+Pour vérifier un numéro : sur votre téléphone, ouvrez l'adresse
+https://wa.me/ suivie du numéro (par exemple https://wa.me/242069153296).
+WhatsApp doit ouvrir une conversation avec le bon contact.
 
 
 ## 3. Changer le message déjà écrit dans WhatsApp
 
-Quand un visiteur clique sur un bouton, WhatsApp s'ouvre avec ce message déjà
-écrit : « Bonjour, je souhaite un diagnostic gratuit pour mon activité. »
+Partie : COORDONNÉES
 
-Fichier : index.html
+Cherchez : whatsapp_message
 
-Texte à chercher :
-Bonjour%2C%20je%20souhaite%20un%20diagnostic%20gratuit%20pour%20mon%20activit%C3%A9.
-
-Il apparaît 4 fois (un par bouton).
-
-Quoi mettre à la place : votre nouveau message, écrit dans le « code des
-liens ». Le plus simple : allez sur un site gratuit de « URL encode » (par
-exemple urlencoder.org), collez votre phrase, copiez le résultat et collez-le
-aux 4 endroits. À la main, les règles principales sont :
-
-- une espace devient %20
-- une virgule devient %2C
-- é devient %C3%A9, è devient %C3%A8, à devient %C3%A0, ç devient %C3%A7
-- un point d'interrogation devient %3F
-
-Exemple : « Bonjour, je veux un devis » devient
-Bonjour%2C%20je%20veux%20un%20devis
+Il apparaît 1 fois. Écrivez le nouveau message normalement, avec accents et
+espaces. Le site le transforme tout seul pour le lien WhatsApp.
 
 
 ## 4. Changer l'adresse e-mail
 
-Fichier : index.html
+Partie : COORDONNÉES
 
-Texte à chercher : contact@iaboostbiz.online
+Cherchez : email:
 
-Il apparaît 3 fois : le lien e-mail du pied de page (2 fois sur la même ligne :
-le lien et le texte affiché) et la fiche pour Google.
-
-Quoi mettre à la place : la nouvelle adresse, aux 3 endroits.
+Il apparaît 1 fois. Mettez la nouvelle adresse sous cette étiquette. Pour
+l'instant, c'est votre adresse personnelle. Le jour où
+contact@iaboostbiz.online fonctionne de nouveau, remplacez-la ici : le bas de
+page et la fiche Google suivent.
 
 
 ## 5. Changer le texte d'un service
 
-Fichier : index.html
+Partie : 4. LES SERVICES
 
-Chaque service est précédé d'un commentaire. Cherchez :
+Chaque service est un bloc qui commence par « - rythme: ». Dans chaque bloc :
 
-- Service 1 : Veille concurrentielle
-- Service 2 : Alertes importantes
-- Service 3 : Rapport de la semaine
-
-Chaque commentaire apparaît 1 fois. Juste en dessous, vous trouvez dans l'ordre :
-
-- le rythme (par exemple « Chaque lundi matin »), après le dessin de l'icône ;
-- le nom du service, entre <h3> et </h3> ;
-- la description, entre <p> et </p> ;
-- l'exemple de message, après « Exemple de message » ;
-- l'heure de l'exemple, entre <time> et </time>.
+- rythme : le moment (par exemple « Chaque lundi matin ») ;
+- icone : le petit dessin, « calendrier » ou « cloche » ;
+- nom : le nom du service ;
+- description : la phrase d'explication ;
+- exemple : le message d'exemple (toujours un exemple, jamais un vrai
+  message de client) ;
+- exemple_heure : l'heure affichée sous l'exemple.
 
 Exemple : pour changer la description de la veille, cherchez
-Nous suivons les publications
-(1 fois) et réécrivez la phrase entre <p> et </p>.
+« Nous suivons les publications » (1 fois) et réécrivez la phrase.
 
-Gardez toujours la mention « Exemple de message » au-dessus d'un exemple : ce
-n'est pas un vrai message de client.
+Évitez les montants en FCFA dans les exemples : le visiteur pourrait les
+prendre pour vos prix.
 
 
 ## 6. Ajouter un service
 
-Fichier : index.html
+Partie : 4. LES SERVICES
 
-Texte à chercher : <!-- Service 3 : Rapport de la semaine -->
+1. Sélectionnez un bloc complet de service, depuis la ligne
+   « - rythme: >- » jusqu'à la ligne de son exemple_heure et son texte
+   (inclus). Copiez.
+2. Collez-le juste après le dernier service (après la ligne qui suit
+   « exemple_heure: >- » du troisième service), avec le même décalage.
+3. Changez les textes de la copie.
 
-Il apparaît 1 fois.
-
-Quoi faire :
-
-1. Sélectionnez depuis cette ligne de commentaire jusqu'à la ligne
-   </article> qui suit (incluse). Copiez.
-2. Collez juste après ce </article>, sur une nouvelle ligne.
-3. Dans la copie, changez le commentaire (Service 4 : ...), le rythme, le nom,
-   la description, l'exemple et l'heure.
-4. Pour l'icône du rythme, gardez #i-calendrier (pour un rythme fixe) ou
-   #i-cloche (pour « dès que ça arrive »).
-
-Rappel : n'ajoutez un service que si vous savez déjà le livrer. Et pensez à
-retirer cette prestation de la ligne « Sur demande » si elle y figure
-(cherchez : Sur demande).
+Le nouveau service apparaît sur le site, à la suite des autres. Rappel :
+n'ajoutez que ce que vous savez déjà livrer, et retirez-le de la ligne
+« Sur demande » s'il y figure (cherchez : sur_demande).
 
 
 ## 7. Changer la couleur principale
 
-Fichier : style.css
+C'est le seul changement qui se fait dans un autre fichier.
 
-Texte à chercher : --bleu: #2E6BFF;
+Fichier : style.css (à la racine du dépôt)
 
-Il apparaît 1 fois, tout en haut du fichier.
+Cherchez : --bleu: #2E6BFF;
 
-Quoi mettre à la place : le nouveau code couleur, par exemple
---bleu: #1F5BEB;
+Il apparaît 1 fois, tout en haut du fichier. Remplacez #2E6BFF par le
+nouveau code couleur, par exemple #1F5BEB. Toute la page suit.
 
-Toute la page suit. Attention : le texte blanc des boutons doit rester bien
-lisible. Avant de valider, testez la couleur sur un site de « contrast
-checker » (par exemple webaim.org/resources/contrastchecker) avec le blanc
-#FFFFFF : le résultat doit être au moins 4.5:1.
+Attention : le texte blanc des boutons doit rester lisible. Vérifiez la
+couleur sur webaim.org/resources/contrastchecker avec le blanc #FFFFFF : le
+résultat doit être d'au moins 4.5:1.
 
-Le même code #2E6BFF apparaît aussi 1 fois dans favicon.svg, 1 fois dans
-assets/logo.svg et 2 fois dans outils/partage.html. Ce sont le logo et les
-icônes : ne les changez que si le logo lui-même change de couleur.
+Le logo et les icônes (assets/logo.svg, favicon.svg) gardent le bleu du logo :
+ne les changez que si le logo lui-même change.
 
 
 ## 8. Ajouter un vrai témoignage
 
 Seulement avec un vrai client, avec son accord écrit, et ses mots exacts.
 
-Fichier : index.html
+Partie : 7. TÉMOIGNAGES
 
-Texte à chercher : TÉMOIGNAGE CACHÉ
+Cherchez : liste: []
 
-Il apparaît 2 fois : une ligne qui finit par DÉBUT et une ligne qui finit
-par FIN. Entre les deux se trouve un bloc témoignage prêt à l'emploi.
+Il apparaît 1 fois. Tant que la liste est vide, la section n'apparaît pas sur
+le site. Remplacez cette ligne par (même décalage que « liste: [] ») :
 
-Quoi faire :
+    liste:
+      - texte: >-
+          Les mots exacts du client.
+        auteur: >-
+          Grâce M., pharmacie, Poto-Poto
 
-1. Entre les deux lignes, remplacez « Texte exact du client, mot pour mot. »
-   par la phrase du client.
-2. Remplacez « Prénom Nom, métier, quartier » par son nom et son activité
-   (par exemple : Grâce M., pharmacie, Poto-Poto).
-3. Supprimez entièrement les 2 lignes qui contiennent TÉMOIGNAGE CACHÉ.
-   Le témoignage apparaît alors sur le site, juste avant le bandeau final.
-
-Pour en ajouter un deuxième : copiez le bloc qui va de <figure
-class="temoignage"> à </figure> et collez-le juste en dessous.
+Le modèle est aussi écrit juste au-dessus dans le fichier, en explication.
+Pour un deuxième témoignage, recopiez le bloc qui commence par « - texte: »
+juste en dessous du premier.
 
 
-## 9. Changer l'année
+## 9. L'année en bas de page
 
-Fichier : index.html
+Rien à faire : l'année se met à jour toute seule.
 
-Texte à chercher : © 2026
-
-Il apparaît 1 fois, en bas de la page.
-
-Quoi mettre à la place : © 2027 (ou l'année en cours). À faire chaque
-1er janvier.
+Si vous voulez changer « Brazzaville, République du Congo » à côté de
+l'année : partie 9. PIED DE PAGE, cherchez « lieu: » (1 fois).
 
 
 ## 10. Changer l'image d'aperçu (WhatsApp, Facebook)
 
-C'est l'image qui s'affiche quand quelqu'un partage le lien du site.
+C'est l'image qui s'affiche quand quelqu'un partage le lien du site. Comme
+c'est une image, son texte ne se change pas dans textes.yml.
 
 Fichier : assets/partage.png
 
-Elle est utilisée 3 fois dans index.html (cherchez : partage.png).
-
-Le plus simple : préparez une nouvelle image de 1200 pixels de large sur
-630 pixels de haut (par exemple avec Canva, format « Publication Facebook »
-puis dimensions personnalisées), enregistrez-la en PNG sous le nom exact
-partage.png, puis sur GitHub ouvrez le dossier assets, cliquez sur
-« Add file », puis « Upload files » et déposez-la : elle remplace l'ancienne.
-Ne changez pas le nom du fichier.
+Le plus simple : préparez une image de 1200 pixels de large sur 630 pixels de
+haut (par exemple avec Canva, dimensions personnalisées), enregistrez-la en
+PNG sous le nom exact partage.png, puis sur GitHub ouvrez le dossier assets,
+cliquez sur « Add file », puis « Upload files », et déposez-la : elle
+remplace l'ancienne. Ne changez pas le nom du fichier.
 
 L'image actuelle a été fabriquée à partir de outils/partage.html (voir
 README.md) : un développeur peut la regénérer en une commande.
 
-WhatsApp garde l'ancienne image en mémoire pendant quelques jours : c'est
-normal si le changement ne se voit pas tout de suite.
+WhatsApp garde l'ancienne image en mémoire quelques jours : c'est normal si
+le changement ne se voit pas tout de suite.

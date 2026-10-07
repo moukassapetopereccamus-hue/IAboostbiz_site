@@ -2,16 +2,26 @@
 
 Site vitrine d'une seule page pour IAboostbiz (Brazzaville). Pas de framework :
 du HTML, du CSS et une police hébergée ici. Aucun JavaScript. Poids de la page
-environ 62 Ko.
+environ 60 Ko.
 
-Pour modifier un texte, un numéro ou une couleur : lisez MODIFIER.md.
+TOUS LES TEXTES sont dans _data/textes.yml, séparés du code. Pour modifier un
+texte, un numéro ou l'e-mail : lisez MODIFIER.md.
 
 
 ## Rôle de chaque fichier
 
+_data/textes.yml
+TOUS les textes du site, les coordonnées (WhatsApp, e-mail) et le message
+WhatsApp. C'est le seul fichier à modifier pour changer un texte.
+
 index.html
-La page elle-même : tout le texte du site. Chaque bloc est précédé d'un
-commentaire en français qui dit ce qu'il contient.
+Le gabarit de la page : la structure, sans aucun texte. Il va chercher les
+textes dans _data/textes.yml. GitHub Pages assemble les deux automatiquement
+(avec l'outil Jekyll, intégré à GitHub Pages) à chaque modification.
+
+_includes/t.html
+Petit outil du gabarit : ajoute les espaces correctes avant « : », « ? », « ! »
+et protège les textes. Ne pas modifier.
 
 style.css
 L'apparence : couleurs, tailles, mise en page. Les couleurs et la police sont
@@ -59,7 +69,9 @@ outils/
 Pour un développeur, pas nécessaire au site. partage.html est le modèle de
 l'image d'aperçu ; generer-images.mjs regénère partage.png, logo-512.png et
 les icônes (commande : npm install playwright, puis
-node outils/generer-images.mjs). captures/ contient les captures d'écran de vérification (375, 768 et 1280 px, paysage, texte à 200 %, sans animation).
+node outils/generer-images.mjs). Pour voir le site sur un ordinateur avant de
+publier : installer Jekyll 3.10 puis lancer « jekyll serve » dans le dossier.
+captures/ contient les captures d'écran de vérification (375, 768 et 1280 px, paysage, texte à 200 %, sans animation) et une courte vidéo de l'animation sur téléphone.
 
 
 ## Mettre le site en ligne
@@ -69,7 +81,8 @@ node outils/generer-images.mjs). captures/ contient les captures d'écran de vé
 1. Fusionnez la pull request dans la branche main.
 2. Sur GitHub, dans le dépôt IAboostbiz_site : Settings, puis Pages
    (menu de gauche).
-3. Dans « Build and deployment », Source : choisissez « Deploy from a branch ».
+3. Dans « Build and deployment », Source : choisissez « Deploy from a branch »
+   (c'est ce réglage qui assemble les textes et le gabarit).
    Branch : choisissez « main » et le dossier « / (root) ». Cliquez sur Save.
 4. Dans « Custom domain », vérifiez que iaboostbiz.online est écrit (le fichier
    CNAME le remplit tout seul). Sinon, tapez-le et cliquez sur Save.

@@ -1,0 +1,326 @@
+# ==========================================================================
+#  TOUS LES TEXTES DU SITE IAboostbiz
+# ==========================================================================
+#  C'est le SEUL fichier à ouvrir pour changer un texte du site.
+#
+#  Comment écrire :
+#  - Le texte se trouve toujours SOUS une ligne qui finit par « >- ».
+#  - Gardez le même décalage (les espaces au début de la ligne) que le texte
+#    que vous remplacez. Ne mettez jamais de tabulation.
+#  - Vous pouvez écrire le texte sur une ou plusieurs lignes : le site le
+#    remet sur une seule ligne tout seul.
+#  - Ne changez pas les mots placés AVANT les deux-points (titre:, texte:,
+#    rythme:…) : ce sont des étiquettes que le site utilise pour s'y retrouver.
+#  - Les lignes qui commencent par # sont des explications : elles ne
+#    s'affichent pas sur le site.
+# ==========================================================================
+
+
+# --------------------------------------------------------------------------
+#  COORDONNÉES
+# --------------------------------------------------------------------------
+contact:
+
+  # Numéro WhatsApp pour les boutons : chiffres seulement, sans + ni espaces.
+  # Au Congo-Brazzaville, on GARDE le 0 : +242 06 915 32 96 s'écrit 242069153296.
+  whatsapp_numero: >-
+    242069153296
+
+  # Le même numéro, écrit comme il doit s'afficher en bas de la page.
+  whatsapp_affiche: >-
+    +242 06 915 32 96
+
+  # Le message déjà écrit quand le visiteur clique sur un bouton.
+  # Écrivez-le normalement, avec accents et espaces : le site s'occupe du reste.
+  whatsapp_message: >-
+    Bonjour, je souhaite un diagnostic gratuit pour mon activité.
+
+  # Adresse e-mail affichée en bas de la page.
+  email: >-
+    moukassapetopereccamus@gmail.com
+
+
+# --------------------------------------------------------------------------
+#  LE BOUTON (le même texte partout : en-tête, accroche, services, bandeau)
+# --------------------------------------------------------------------------
+bouton:
+  texte: >-
+    Diagnostic gratuit sur WhatsApp
+  # Version courte, affichée dans l'en-tête sur les petits téléphones.
+  texte_court: >-
+    Diagnostic gratuit
+  # Petite phrase sous le bouton.
+  precision: >-
+    15 minutes, sans engagement. Basé à Brazzaville.
+
+
+# --------------------------------------------------------------------------
+#  GOOGLE ET APERÇU WHATSAPP (ne s'affichent pas sur la page)
+# --------------------------------------------------------------------------
+referencement:
+  # Titre dans Google et dans l'onglet : 60 caractères maximum, garder « Brazzaville ».
+  titre: >-
+    IAboostbiz Brazzaville : moins de tâches, plus de business
+  # Résumé dans Google et dans l'aperçu WhatsApp : 155 caractères maximum.
+  description: >-
+    Veille des concurrents, mails importants transmis sur WhatsApp, rapport
+    chaque lundi. Diagnostic gratuit de 15 minutes. Basé à Brazzaville.
+
+
+# --------------------------------------------------------------------------
+#  1. ACCROCHE (le haut de la page)
+# --------------------------------------------------------------------------
+accroche:
+  # La grande phrase. Elle sert aussi de titre dans l'aperçu WhatsApp.
+  titre: >-
+    Votre business tourne même quand vous n'êtes pas disponible.
+  sous_titre: >-
+    Nous faisons les tâches répétitives à votre place : surveiller vos
+    concurrents, repérer vos mails importants, faire le point de la semaine.
+    L'essentiel arrive sur votre téléphone. Vous, vous vous occupez de vos
+    clients.
+
+
+# --------------------------------------------------------------------------
+#  LE TÉLÉPHONE D'EXEMPLE (à côté de la grande phrase)
+#  Ce sont des EXEMPLES, pas de vrais messages : l'étiquette doit le dire.
+# --------------------------------------------------------------------------
+telephone:
+  etiquette: >-
+    Exemple : votre téléphone un lundi matin
+  jour: >-
+    Lundi
+  heure: >-
+    07:30
+  messages:
+    - heure: >-
+        07:30
+      titre: >-
+        Vos concurrents cette semaine
+      texte: >-
+        Le concurrent A fait une promotion jusqu'à samedi. 2 nouveaux avis
+        négatifs chez lui : attente trop longue.
+    - heure: >-
+        07:31
+      titre: >-
+        Mail important
+      texte: >-
+        Facture du fournisseur reçue par e-mail, à régler avant vendredi.
+    - heure: >-
+        07:32
+      titre: >-
+        Votre semaine
+      texte: >-
+        Meilleur jour : samedi. Ventes en hausse par rapport à la semaine
+        d'avant. À surveiller : le stock de savon.
+
+
+# --------------------------------------------------------------------------
+#  2. LE PROBLÈME : trois situations vécues
+# --------------------------------------------------------------------------
+probleme:
+  titre: >-
+    Ce qui vous fait perdre du temps et de l'argent
+  situations:
+    - titre: >-
+        Vous l'apprenez trop tard.
+      texte: >-
+        Un client vous dit que la boutique d'en face fait une promotion. Elle a
+        commencé il y a dix jours.
+    - titre: >-
+        Le mail important est passé inaperçu.
+      texte: >-
+        Une commande ou une facture est arrivée par e-mail. Vous ne l'avez pas
+        vue : vous regardez WhatsApp, pas votre boîte mail.
+    - titre: >-
+        Le point de la semaine vous prend des heures.
+      texte: >-
+        Chaque semaine, vous refaites vos comptes et relisez vos messages à la
+        main pour savoir où vous en êtes.
+
+
+# --------------------------------------------------------------------------
+#  3. LA SOLUTION : trois lignes maximum
+# --------------------------------------------------------------------------
+solution:
+  titre: >-
+    Ce que nous faisons pour vous
+  lignes:
+    - >-
+      Nous surveillons, nous trions et nous résumons à votre place.
+    - >-
+      Vous recevez seulement l'essentiel, sur WhatsApp ou Telegram, au moment
+      prévu.
+    - >-
+      Votre temps revient à votre business.
+
+
+# --------------------------------------------------------------------------
+#  4. LES SERVICES
+#  Pour ajouter un service : copiez un bloc complet (de « - rythme » jusqu'à
+#  « exemple_heure ») et collez-le à la suite, avec le même décalage.
+#  icone : « calendrier » (rythme fixe) ou « cloche » (dès que ça arrive).
+# --------------------------------------------------------------------------
+services:
+  titre: >-
+    Trois services, à un rythme que vous connaissez
+  liste:
+    - rythme: >-
+        Chaque lundi matin
+      icone: calendrier
+      nom: >-
+        Veille concurrentielle
+      description: >-
+        Nous suivons les publications, les promotions et les avis Google de vos
+        concurrents. Vous recevez un résumé d'une page, avec ce que vous pouvez
+        en faire.
+      exemple: >-
+        Le concurrent B a publié 3 promotions cette semaine, surtout sur les
+        pagnes. Plusieurs avis Google se plaignent de son accueil. Idée :
+        mettez en avant votre retouche offerte.
+      exemple_heure: >-
+        Lundi 07:30
+
+    - rythme: >-
+        Dès que ça arrive
+      icone: cloche
+      nom: >-
+        Alertes importantes
+      description: >-
+        Les mails qui comptent (factures, commandes, rendez-vous) vous sont
+        transmis sur WhatsApp ou Telegram. Le reste attend tranquillement dans
+        votre boîte.
+      exemple: >-
+        Nouvelle commande reçue par e-mail : 20 cartons d'eau minérale,
+        livraison souhaitée jeudi.
+      exemple_heure: >-
+        Mardi 10:14
+
+    - rythme: >-
+        Chaque lundi
+      icone: calendrier
+      nom: >-
+        Rapport de la semaine
+      description: >-
+        Vos chiffres et l'essentiel de la semaine écoulée, sur une seule page.
+        Lu en deux minutes.
+      exemple: >-
+        Semaine passée : meilleur jour samedi, ventes en hausse, 3 rendez-vous
+        annulés. À surveiller : le stock de savon.
+      exemple_heure: >-
+        Lundi 07:32
+
+  # Mention au-dessus de chaque exemple.
+  etiquette_exemple: >-
+    Exemple de message
+  # La ligne sous les services. Le début (avant les deux-points) est en gras.
+  sur_demande_debut: >-
+    Sur demande :
+  sur_demande: >-
+    réponses automatiques WhatsApp, rappels de rendez-vous, confirmations de
+    commandes.
+
+
+# --------------------------------------------------------------------------
+#  5. COMMENT ÇA SE PASSE : les étapes
+#  « important » est la phrase mise en gras à la fin (laisser vide si aucune).
+# --------------------------------------------------------------------------
+etapes:
+  titre: >-
+    Comment ça se passe
+  liste:
+    - titre: >-
+        Un diagnostic gratuit de 15 minutes sur WhatsApp
+      texte: >-
+        Vous nous expliquez votre activité et ce qui vous prend du temps. Nous
+        écoutons avant de proposer quoi que ce soit.
+      important: >-
+        Si nous ne pouvons pas vous aider, nous vous le disons.
+    - titre: >-
+        La mise en place, validée avec vous
+      texte: >-
+        Vous recevez un devis en FCFA avant de commencer. Vous voyez un exemple
+        de ce que vous allez recevoir, et rien n'est lancé sans votre accord.
+      important: >-
+    - titre: >-
+        Les résultats arrivent sur votre téléphone
+      texte: >-
+        Sur WhatsApp ou Telegram, au rythme prévu. Rien à installer, rien à
+        apprendre.
+      important: >-
+
+
+# --------------------------------------------------------------------------
+#  6. CONFIANCE
+#  icone possible : epingle, personnes, billet, valide, texte
+# --------------------------------------------------------------------------
+confiance:
+  titre: >-
+    Pourquoi nous faire confiance
+  liste:
+    - icone: epingle
+      titre: >-
+        Un fondateur à Brazzaville
+      texte: >-
+        IAboostbiz a été fondé par Moukassa Perec, à Brazzaville. Vous savez à
+        qui vous parlez.
+    - icone: personnes
+      titre: >-
+        Une rencontre en personne si vous préférez
+      texte: >-
+        Nous pouvons nous voir à Brazzaville, à votre commerce ou à votre
+        cabinet.
+    - icone: billet
+      titre: >-
+        Un prix en FCFA, annoncé avant
+      texte: >-
+        Devis en FCFA, annoncé avant de commencer. Pas de surprise.
+    - icone: valide
+      titre: >-
+        Vous validez avant le lancement
+      texte: >-
+        Vous voyez ce que vous allez recevoir et vous donnez votre accord avant
+        que tout démarre.
+    - icone: texte
+      titre: >-
+        Sans jargon
+      texte: >-
+        Nous parlons de vos clients, de vos ventes et de votre temps. Pas de
+        technique.
+
+
+# --------------------------------------------------------------------------
+#  7. TÉMOIGNAGES
+#  Uniquement de VRAIS clients, avec leur accord, avec leurs mots exacts.
+#  Tant que la liste est vide (deux crochets [ ]), la section n'apparaît pas.
+#  Pour en ajouter un, remplacez la ligne de la liste vide, plus bas, par :
+#
+#  liste:
+#    - texte: >-
+#        Les mots exacts du client.
+#      auteur: >-
+#        Grâce M., pharmacie, Poto-Poto
+# --------------------------------------------------------------------------
+temoignages:
+  titre: >-
+    Ce qu'en disent nos clients
+  liste: []
+
+
+# --------------------------------------------------------------------------
+#  8. BANDEAU FINAL (le bloc bleu nuit en bas)
+# --------------------------------------------------------------------------
+bandeau:
+  titre: >-
+    Et si lundi prochain, l'essentiel de votre semaine vous attendait déjà ?
+  texte: >-
+    Commencez par 15 minutes d'échange. C'est gratuit, et vous saurez tout de
+    suite si nous pouvons vous aider.
+
+
+# --------------------------------------------------------------------------
+#  9. PIED DE PAGE (l'année se met à jour toute seule)
+# --------------------------------------------------------------------------
+pied:
+  lieu: >-
+    Brazzaville, République du Congo

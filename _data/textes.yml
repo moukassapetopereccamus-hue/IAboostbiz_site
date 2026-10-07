@@ -139,6 +139,9 @@ probleme:
       texte: >-
         Chaque semaine, vous refaites vos comptes et relisez vos messages à la
         main pour savoir où vous en êtes.
+  # Petite invitation sous les situations (lien vers WhatsApp).
+  mini_cta: >-
+    Vous vous reconnaissez ? Parlons-en sur WhatsApp
 
 
 # --------------------------------------------------------------------------
@@ -232,8 +235,11 @@ services:
 #  WhatsApp) : ne pas les promettre plus souples qu'elles ne sont.
 # --------------------------------------------------------------------------
 bientot:
+  # Petite étiquette bleue au-dessus du titre.
+  etiquette: >-
+    Bientôt
   titre: >-
-    Bientôt : votre WhatsApp qui répond pour vous
+    Votre WhatsApp qui répond pour vous
   texte: >-
     Réponses immédiates aux questions fréquentes, réservations et commandes
     notées, rappels envoyés la veille. Le tout depuis le numéro WhatsApp de

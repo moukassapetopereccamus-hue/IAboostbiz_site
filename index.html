@@ -86,6 +86,7 @@
 
 <!-- 1. EN-TÊTE : logo + petit bouton WhatsApp -->
 <header class="entete">
+  <span class="progression" aria-hidden="true"></span>
   <div class="conteneur">
     <a class="marque" href="./" aria-label="IAboostbiz, accueil">
       <img src="assets/logo.svg" width="36" height="36" alt="">
@@ -119,7 +120,7 @@
     </div>
 
     <figure class="ecran">
-      <figcaption class="ecran__etiquette">{% include t.html v=T.telephone.etiquette %}</figcaption>
+      <figcaption class="ecran__etiquette tag tag--contour">{% include t.html v=T.telephone.etiquette %}</figcaption>
       <div class="ecran__cadre">
         <p class="ecran__date">{% include t.html v=T.telephone.jour %}</p>
         <!-- L'heure avance d'un message à l'autre (heures prises dans les messages) -->
@@ -153,11 +154,14 @@
       </li>
       {%- endfor %}
     </ul>
+    <!-- Petite invitation après l'étape « problème » -->
+    <a class="mini-cta" href="{{ wa }}" rel="noopener"><svg class="icone" aria-hidden="true"><use href="#i-message"/></svg>{% include t.html v=T.probleme.mini_cta %}</a>
   </div>
 </section>
 
 <!-- 4. LA SOLUTION -->
 <section class="section solution" aria-labelledby="titre-solution">
+  <span class="anneau" aria-hidden="true"></span>
   <div class="conteneur">
     <h2 id="titre-solution">{% include t.html v=T.solution.titre %}</h2>
     <div class="solution__texte">
@@ -201,13 +205,13 @@
     <div class="services">
       {%- for s in T.services.liste %}
       <article class="service{% if s.icone == 'cloche' %} service--alerte{% endif %}">
-        <p class="service__rythme">{% include t.html v=s.rythme %}</p>
+        <p class="service__rythme"><span class="tag{% if s.icone == 'cloche' %} tag--nuit{% endif %}">{% include t.html v=s.rythme %}</span></p>
         <div class="service__texte">
           <h3>{% include t.html v=s.nom %}</h3>
           <p>{% include t.html v=s.description %}</p>
         </div>
         <div class="bulle">
-          <span class="bulle__etiquette">{% include t.html v=T.services.etiquette_exemple %}</span>
+          <span class="bulle__etiquette tag tag--fonce">{% include t.html v=T.services.etiquette_exemple %}</span>
           {% include t.html v=s.exemple %}
           <time>{% include t.html v=s.exemple_heure %}</time>
         </div>
@@ -228,8 +232,10 @@
 
 <!-- 5 bis. BIENTÔT : WHATSAPP QUI RÉPOND POUR VOUS (avec les conditions de Meta) -->
 <section class="section bientot" aria-labelledby="titre-bientot">
+  <span class="anneau" aria-hidden="true"></span>
   <div class="conteneur bientot__grille">
-    <div>
+    <div class="bientot__titre">
+      <span class="tag">{% include t.html v=T.bientot.etiquette %}</span>
       <h2 id="titre-bientot">{% include t.html v=T.bientot.titre %}</h2>
       <p class="intro">{% include t.html v=T.bientot.texte %}</p>
     </div>
@@ -342,7 +348,18 @@
 <!-- Lance chaque animation quand elle devient visible (sans ce script, tout s'affiche directement) -->
 <script>
 (function () {
-  var blocs = document.querySelectorAll(".ecran, .semaine, .mesures");
+  /* Apparitions au défilement : au plus 8 éléments décalés par groupe */
+  var groupes = ["main section h2", "main .intro", ".situation", ".mini-cta", ".solution p", ".semaine", ".service", ".sur-demande",
+    ".conditions", ".etape", ".regle__sous-titre", ".confiance li", ".bandeau p", ".bandeau .bouton"];
+  if (window.matchMedia("(prefers-reduced-motion: no-preference)").matches) {
+    groupes.forEach(function (sel) {
+      document.querySelectorAll(sel).forEach(function (el, i) {
+        if (el.closest(".accroche")) return;
+        el.classList.add("rv"); el.style.setProperty("--i", Math.min(i, 7));
+      });
+    });
+  }
+  var blocs = document.querySelectorAll(".ecran, .semaine, .mesures, .rv");
   if (!("IntersectionObserver" in window)) { blocs.forEach(function (b) { b.classList.add("vu"); }); return; }
   var obs = new IntersectionObserver(function (entrees) {
     entrees.forEach(function (e) {

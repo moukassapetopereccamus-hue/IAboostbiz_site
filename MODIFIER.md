@@ -226,6 +226,7 @@ le changement ne se voit pas tout de suite.
 
 Partie : 4 bis. BIENTÔT (cherchez : bientot:, 1 fois)
 
+- etiquette : la petite étiquette bleue au-dessus du titre (« Bientôt ») ;
 - titre, texte : le titre et la description du service à venir ;
 - conditions : la liste des conditions de Meta, une par ligne commençant
   par « - ». Pour en ajouter une, copiez une ligne « - >- » et le texte qui
@@ -242,3 +243,11 @@ Partie : 4 ter. NOTRE RÈGLE (cherchez : regle:, 1 fois)
 
 N'y mettez pas de chiffres ni de prix : les chiffres viennent de chaque
 client, pendant le diagnostic.
+
+
+## 12. La petite invitation sous « Ce qui vous fait perdre du temps »
+
+Partie : 2. LE PROBLÈME (cherchez : mini_cta, 1 fois)
+
+C'est le lien « Vous vous reconnaissez ? Parlons-en sur WhatsApp ». Il ouvre
+WhatsApp avec le même message que les boutons. Changez seulement la phrase.

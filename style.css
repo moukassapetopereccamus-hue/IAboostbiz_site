@@ -1,0 +1,368 @@
+/* =====================================================================
+   IAboostbiz — feuille de style du site
+   ---------------------------------------------------------------------
+   POUR CHANGER LES COULEURS OU LA POLICE : modifiez seulement les
+   variables juste en dessous (le bloc « :root »). Tout le site suit.
+   ===================================================================== */
+
+:root {
+  /* --- Couleurs (tirées du logo) ----------------------------------- */
+  --bleu: #2E6BFF;        /* Bleu du logo : boutons, liens, accents. Texte blanc dessus = contraste AA */
+  --bleu-fonce: #1A48B5;  /* Bleu foncé du logo : bouton au survol */
+  --bleu-pale: #EAF0FF;   /* Bleu très clair : fond des messages d'exemple */
+  --nuit: #0B1220;        /* Bleu nuit du fond du logo : texte principal et bandeau final */
+  --gris: #4B5565;        /* Texte secondaire (phrases d'explication) */
+  --gris-clair: #C7D3EA;  /* Texte secondaire sur fond bleu nuit */
+  --papier: #F4F6FA;      /* Fond gris-bleu très léger des sections alternées */
+  --blanc: #FFFFFF;       /* Fond principal */
+  --filet: #D9DFEA;       /* Traits fins de séparation */
+
+  /* --- Police (une seule, hébergée dans le dossier fonts/) ------- */
+  --police: "Public Sans", "Segoe UI", Roboto, Arial, sans-serif;  /* Public Sans : très lisible, chiffres simples */
+
+  /* --- Mesures ------------------------------------------------------ */
+  --largeur-max: 1120px;  /* Largeur maximale du contenu sur ordinateur */
+  --marge: 20px;          /* Marge sur les côtés du téléphone */
+  --arrondi: 12px;        /* Arrondi des boutons et des blocs */
+}
+
+/* ---------- Police auto-hébergée (aucun appel à Google Fonts) ---------- */
+@font-face {
+  font-family: "Public Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/public-sans-latin-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Public Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/public-sans-latin-700-normal.woff2") format("woff2");
+}
+
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-padding-top: 88px; }
+body {
+  margin: 0;
+  background: var(--blanc);
+  color: var(--nuit);
+  font-family: var(--police);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  overflow-wrap: break-word;
+}
+h1, h2, h3, p, ul, ol { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+img, svg { display: block; max-width: 100%; }
+a { color: var(--bleu-fonce); text-underline-offset: 3px; }
+a:hover { color: var(--nuit); }
+:focus-visible { outline: 3px solid var(--bleu); outline-offset: 3px; border-radius: 4px; }
+
+h1 {
+  font-size: clamp(2rem, 7.4vw, 3.4rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  text-wrap: balance;
+}
+h2 {
+  font-size: clamp(1.6rem, 5.4vw, 2.3rem);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+h3 { font-size: 1.25rem; line-height: 1.3; }
+
+.conteneur {
+  width: 100%;
+  max-width: var(--largeur-max);
+  margin: 0 auto;
+  padding: 0 var(--marge);
+}
+.section { padding: 64px 0; }
+.section--papier { background: var(--papier); }
+.intro { color: var(--gris); max-width: 36em; margin-top: 16px; font-size: 1.125rem; }
+
+.lien-evitement {
+  position: absolute; left: 8px; top: 8px;
+  transform: translateY(-200%);
+  background: var(--nuit); color: var(--blanc);
+  padding: 12px 16px; border-radius: 8px; z-index: 20;
+}
+.lien-evitement:focus { transform: none; }
+
+.sprite { position: absolute; }
+
+/* ---------- Icônes (famille Lucide, trait de 2) ---------- */
+.icone {
+  width: 24px; height: 24px; flex: none;
+  fill: none; stroke: currentColor; stroke-width: 2;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+
+/* ---------- Bouton WhatsApp (le seul bouton du site) ---------- */
+.bouton {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 56px;
+  padding: 14px 24px;
+  border-radius: var(--arrondi);
+  background: var(--bleu);
+  color: var(--blanc);
+  font-size: 1.1875rem;   /* 19 px en gras = « grand texte » au sens WCAG */
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color .15s ease;
+}
+.bouton:hover { background: var(--bleu-fonce); color: var(--blanc); }
+.bouton .icone { width: 1.15em; height: 1.15em; }
+.bouton--plein { width: 100%; }
+.bouton--petit {
+  min-height: 44px; padding: 8px 14px;
+  font-size: 0.95rem; gap: 8px;
+  white-space: nowrap;
+}
+.bouton--petit .icone { width: 1.1em; height: 1.1em; }
+.precision { margin-top: 12px; color: var(--gris); font-size: 0.98rem; }
+
+/* ---------- En-tête ---------- */
+.entete {
+  position: sticky; top: 0; z-index: 10;
+  background: var(--blanc);
+  border-bottom: 1px solid var(--filet);
+}
+.entete .conteneur {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: 8px 12px; min-height: 64px; padding-block: 8px;
+}
+.marque {
+  display: inline-flex; align-items: center; gap: 10px;
+  min-height: 44px;
+  color: var(--nuit); text-decoration: none;
+  font-size: 1.3rem; font-weight: 700; letter-spacing: -0.01em;
+}
+.marque img { width: 36px; height: 36px; }
+.marque span span { color: var(--bleu); }
+.marque:hover { color: var(--nuit); }
+.entete .texte-long { display: none; }
+
+/* ---------- Accroche ---------- */
+.accroche { padding: 40px 0 56px; }
+.accroche__grille { display: grid; gap: 48px; }
+.accroche__sous {
+  margin-top: 20px; color: var(--gris);
+  font-size: 1.1875rem; max-width: 32em;
+}
+.accroche__action { margin-top: 28px; max-width: 460px; }
+
+/* Le téléphone d'exemple (dessiné en HTML/CSS, aucune image) */
+.ecran { margin: 0 auto; margin-block: 0; width: 100%; max-width: 340px; }
+.ecran__etiquette {
+  display: inline-block; margin-bottom: 10px;
+  font-size: 0.875rem; font-weight: 700;
+  color: var(--gris);
+  border: 1px solid var(--filet); border-radius: 6px;
+  padding: 2px 8px;
+}
+.ecran__cadre {
+  background: var(--nuit);
+  border-radius: 36px;
+  padding: 28px 14px 22px;
+  box-shadow: 0 24px 48px -28px rgba(11, 18, 32, .55);
+}
+.ecran__date { color: var(--gris-clair); text-align: center; font-size: 0.95rem; }
+.ecran__heure {
+  color: var(--blanc); text-align: center;
+  font-size: 3.4rem; font-weight: 700; line-height: 1.05; letter-spacing: -0.02em;
+  margin-bottom: 18px;
+}
+.notif {
+  background: var(--blanc);
+  border-radius: 16px;
+  padding: 12px 14px;
+  margin-top: 10px;
+  font-size: 0.94rem; line-height: 1.45;
+}
+.notif__tete {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 0.8125rem; color: var(--gris); margin-bottom: 4px;
+}
+.notif__tete img { width: 20px; height: 20px; }
+.notif__tete b { color: var(--nuit); }
+.notif__tete time { margin-left: auto; }
+.notif strong { display: block; }
+
+/* LA SEULE ANIMATION DU SITE : les messages arrivent l'un après l'autre à l'ouverture */
+@media (prefers-reduced-motion: no-preference) {
+  .notif { animation: arrivee .45s ease-out both; }
+  .notif:nth-of-type(1) { animation-delay: .35s; }
+  .notif:nth-of-type(2) { animation-delay: .85s; }
+  .notif:nth-of-type(3) { animation-delay: 1.35s; }
+}
+@keyframes arrivee {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
+}
+/* Sur téléphone, le téléphone d'exemple est sous l'écran à l'ouverture : sur
+   les navigateurs récents (Chrome Android), les messages arrivent quand le
+   visiteur fait défiler la page jusqu'à lui. Chaque message est entièrement
+   visible dès qu'il est entièrement à l'écran. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) and (max-width: 959px) {
+    .notif {
+      animation-timeline: view();
+      animation-delay: 0s;
+      animation-duration: auto;
+      animation-timing-function: ease-out;
+    }
+    .notif:nth-of-type(1) { animation-delay: 0s; animation-range: entry 0% entry 60%; }
+    .notif:nth-of-type(2) { animation-delay: 0s; animation-range: entry 20% entry 80%; }
+    .notif:nth-of-type(3) { animation-delay: 0s; animation-range: entry 40% entry 100%; }
+  }
+}
+
+/* ---------- Le problème ---------- */
+.situations { margin-top: 32px; border-top: 1px solid var(--filet); }
+.situation {
+  display: flex; gap: 16px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--filet);
+}
+.situation .icone { color: var(--bleu); margin-top: 3px; }
+.situation p { font-size: 1.125rem; }
+.situation p b { display: block; margin-bottom: 4px; }
+
+/* ---------- La solution ---------- */
+.solution__texte { margin-top: 20px; }
+.solution p { font-size: 1.25rem; line-height: 1.5; max-width: 30em; }
+.solution p + p { margin-top: 12px; }
+
+/* ---------- Les services (présentés comme un horaire) ---------- */
+.services { margin-top: 32px; border-top: 2px solid var(--nuit); }
+.service {
+  display: grid; gap: 16px;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--filet);
+}
+.service__rythme {
+  display: flex; align-items: center; gap: 10px;
+  color: var(--bleu-fonce);
+  font-weight: 700; font-size: 1.125rem;
+}
+.service__rythme .icone { color: var(--bleu); }
+.service h3 { font-size: 1.5rem; }
+.service__texte p { margin-top: 8px; color: var(--gris); }
+
+.bulle {
+  background: var(--bleu-pale);
+  border-radius: 4px 16px 16px 16px;
+  padding: 14px 16px 10px;
+  font-size: 0.97rem; line-height: 1.5;
+}
+.bulle__etiquette {
+  display: block; font-size: 0.8125rem; font-weight: 700;
+  color: var(--bleu-fonce); margin-bottom: 4px;
+}
+.bulle time { display: block; text-align: right; font-size: 0.8125rem; color: var(--gris); margin-top: 6px; }
+
+.sur-demande { margin-top: 28px; font-size: 1.125rem; }
+.sur-demande b { font-weight: 700; }
+.services__action { margin-top: 28px; max-width: 460px; }
+
+/* ---------- Comment ça se passe ---------- */
+.etapes { margin-top: 36px; display: grid; gap: 28px; counter-reset: etape; }
+.etape { position: relative; padding-left: 64px; counter-increment: etape; }
+.etape::before {
+  content: counter(etape);
+  position: absolute; left: 0; top: -2px;
+  width: 44px; height: 44px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--nuit); color: var(--blanc);
+  font-weight: 700; font-size: 1.25rem;
+}
+.etape p { margin-top: 6px; color: var(--gris); }
+.etape p em { font-style: normal; font-weight: 700; color: var(--nuit); }
+
+/* ---------- Confiance ---------- */
+.confiance { margin-top: 32px; display: grid; gap: 24px; }
+.confiance li { display: flex; gap: 16px; }
+.confiance .icone { color: var(--bleu); margin-top: 2px; }
+.confiance p { color: var(--gris); margin-top: 2px; }
+.confiance b { color: var(--nuit); display: block; font-size: 1.125rem; }
+
+/* ---------- Témoignage (utilisé seulement si un vrai témoignage est ajouté) ---------- */
+.temoignage { margin: 32px 0 0; padding-left: 24px; border-left: 4px solid var(--bleu); max-width: 40em; }
+.temoignage blockquote { margin: 0; font-size: 1.375rem; line-height: 1.5; }
+.temoignage figcaption { margin-top: 12px; color: var(--gris); }
+
+/* ---------- Bandeau final ---------- */
+.bandeau { background: var(--nuit); color: var(--blanc); padding: 64px 0; }
+.bandeau p { color: var(--gris-clair); margin-top: 16px; font-size: 1.125rem; max-width: 34em; }
+.bandeau .bouton { margin-top: 28px; }
+.bandeau .precision { color: var(--gris-clair); }
+.bandeau :focus-visible { outline-color: var(--blanc); }
+
+/* ---------- Pied de page ---------- */
+.pied { padding: 40px 0 48px; border-top: 1px solid var(--filet); }
+.pied .conteneur { display: grid; gap: 20px; }
+.pied ul { display: grid; gap: 4px; }
+.pied a {
+  display: inline-flex; align-items: center; gap: 10px;
+  min-height: 44px; color: var(--nuit); text-decoration: none;
+}
+.pied a span { min-width: 0; overflow-wrap: anywhere; }
+.pied a:hover { text-decoration: underline; }
+.pied .icone { width: 20px; height: 20px; color: var(--bleu); }
+.insecable { white-space: nowrap; }
+.pied small { color: var(--gris); font-size: 0.95rem; }
+
+/* =====================================================================
+   Écrans plus larges
+   ===================================================================== */
+@media (min-width: 560px) {
+  .bouton--plein { width: auto; }
+  .entete .texte-court { display: none; }
+  .entete .texte-long { display: inline; }
+}
+
+@media (min-width: 768px) {
+  :root { --marge: 32px; }
+  body { font-size: 1.125rem; }
+  .section, .bandeau { padding: 88px 0; }
+  .accroche { padding: 64px 0 80px; }
+  .services__action, .accroche__action { max-width: none; }
+
+  .etapes { grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .etape { padding-left: 0; padding-top: 64px; }
+  .etape::before { top: 0; }
+  .etape:not(:last-child)::after {
+    content: ""; position: absolute; top: 22px; left: 60px; right: -16px;
+    border-top: 1px solid var(--filet);
+  }
+
+  .confiance { grid-template-columns: 1fr 1fr; gap: 32px 48px; }
+}
+
+@media (min-width: 960px) {
+  .accroche__grille { grid-template-columns: 1.15fr .85fr; align-items: center; gap: 64px; }
+  .ecran { margin: 0 0 0 auto; }
+
+  .probleme .conteneur,
+  .solution .conteneur { display: grid; grid-template-columns: .8fr 1.2fr; gap: 64px; }
+  .situations, .solution__texte { margin-top: 0; }
+  .solution p { font-size: 1.5rem; line-height: 1.45; }
+
+  .service { grid-template-columns: 220px 1fr 340px; gap: 40px; align-items: start; }
+  .service__rythme { padding-top: 4px; }
+}
+
+/* Paysage sur téléphone : on réduit le téléphone d'exemple */
+@media (max-height: 480px) and (orientation: landscape) {
+  .accroche__grille { grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+  .ecran__heure { font-size: 2.4rem; }
+  h1 { font-size: 2rem; }
+}

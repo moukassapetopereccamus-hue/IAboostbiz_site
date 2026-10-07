@@ -46,12 +46,14 @@ favicon.svg, favicon-32.png, apple-touch-icon.png
 Les petites icônes de l'onglet du navigateur et de l'écran d'accueil du
 téléphone.
 
-CNAME
-Contient seulement iaboostbiz.online. Indique à GitHub Pages le nom de domaine.
-Ne pas modifier.
+CNAME (n'existe pas pour l'instant)
+GitHub le crée tout seul le jour où vous entrez iaboostbiz.online dans
+Settings, puis Pages, « Custom domain ». Il contient seulement le nom de
+domaine. Ne pas le créer ni le modifier à la main.
 
 robots.txt et sitemap.xml
-Indiquent à Google ce qu'il peut lire et où se trouve la page.
+Indiquent à Google ce qu'il peut lire et où se trouve la page. L'adresse s'y
+met à jour toute seule (adresse provisoire, puis iaboostbiz.online).
 
 _config.yml
 Réglage de GitHub Pages : empêche la publication de README.md, MODIFIER.md,
@@ -84,13 +86,17 @@ captures/ contient les captures d'écran de vérification (375, 768 et 1280 px, 
 3. Dans « Build and deployment », Source : choisissez « Deploy from a branch »
    (c'est ce réglage qui assemble les textes et le gabarit).
    Branch : choisissez « main » et le dossier « / (root) ». Cliquez sur Save.
-4. Dans « Custom domain », vérifiez que iaboostbiz.online est écrit (le fichier
-   CNAME le remplit tout seul). Sinon, tapez-le et cliquez sur Save.
-5. Attendez une à deux minutes : le site est visible à l'adresse
-   https://moukassapetopereccamus-hue.github.io/IAboostbiz_site/ (en attendant
-   le domaine).
+4. Laissez « Custom domain » vide pour l'instant.
+5. Attendez une à deux minutes : le site est visible à l'adresse provisoire
+   https://moukassapetopereccamus-hue.github.io/IAboostbiz_site/
+   Vous pouvez déjà la partager : les boutons WhatsApp et l'aperçu
+   fonctionnent. Les liens et l'aperçu s'adaptent tout seuls à l'adresse.
 
-### Étape 2 : relier le domaine chez Namecheap
+### Étape 2 (plus tard) : relier le domaine iaboostbiz.online
+
+Faites-le quand vous êtes prêt. Les étapes A puis B, dans cet ordre.
+
+A. Chez Namecheap
 
 1. Connectez-vous à Namecheap, puis Domain List, puis « Manage » à côté de
    iaboostbiz.online.
@@ -112,6 +118,13 @@ TRÈS IMPORTANT : NE TOUCHEZ PAS aux enregistrements de type MX et TXT (ni dans
 « Host Records », ni dans la partie « Mail Settings »). Ce sont eux qui font
 marcher votre e-mail contact@iaboostbiz.online. Ne les modifiez pas, ne les
 supprimez pas, même s'ils vous semblent inutiles.
+
+B. Sur GitHub
+1. Settings, puis Pages, partie « Custom domain » : tapez iaboostbiz.online
+   et cliquez sur Save. GitHub crée alors tout seul un fichier CNAME dans le
+   dépôt : c'est normal.
+2. L'adresse provisoire redirigera ensuite automatiquement vers
+   iaboostbiz.online : les liens déjà partagés continuent de marcher.
 
 ### Étape 3 : activer le cadenas (HTTPS)
 

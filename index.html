@@ -4,6 +4,9 @@
 ---
 {%- assign T = site.data.textes -%}
 {%- assign C = T.contact -%}
+{%- comment -%} Adresse du site : calculée par GitHub Pages (adresse provisoire github.io ou domaine iaboostbiz.online). {%- endcomment -%}
+{%- assign racine = site.url | append: site.baseurl | append: "/" -%}
+{%- if site.url == nil or site.url == "" -%}{%- assign racine = "https://iaboostbiz.online/" -%}{%- endif -%}
 {%- capture wa -%}https://wa.me/{{ C.whatsapp_numero | strip }}?text={{ C.whatsapp_message | strip | url_encode | replace: "+", "%20" }}{%- endcapture -%}
 <!DOCTYPE html>
 <html lang="fr">
@@ -16,16 +19,16 @@
 <!-- Titre et description pour Google (textes dans _data/textes.yml, partie « referencement ») -->
 <title>{{ T.referencement.titre | strip | escape }}</title>
 <meta name="description" content="{{ T.referencement.description | strip | escape }}">
-<link rel="canonical" href="https://iaboostbiz.online/">
+<link rel="canonical" href="{{ racine }}">
 
 <!-- Aperçu au partage (WhatsApp, Facebook, X) -->
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="IAboostbiz">
-<meta property="og:url" content="https://iaboostbiz.online/">
+<meta property="og:url" content="{{ racine }}">
 <meta property="og:title" content="IAboostbiz : {{ T.accroche.titre | strip | escape }}">
 <meta property="og:description" content="{{ T.referencement.description | strip | escape }}">
-<meta property="og:image" content="https://iaboostbiz.online/assets/partage.png">
+<meta property="og:image" content="{{ racine }}assets/partage.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:type" content="image/png">
@@ -33,7 +36,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="IAboostbiz : {{ T.accroche.titre | strip | escape }}">
 <meta name="twitter:description" content="{{ T.referencement.description | strip | escape }}">
-<meta name="twitter:image" content="https://iaboostbiz.online/assets/partage.png">
+<meta name="twitter:image" content="{{ racine }}assets/partage.png">
 <meta name="twitter:image:alt" content="Logo IAboostbiz et la phrase : {{ T.accroche.titre | strip | escape }}">
 
 <!-- Icônes de l'onglet et de l'écran d'accueil -->
@@ -51,11 +54,11 @@
 {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  "@id": "https://iaboostbiz.online/#entreprise",
+  "@id": "{{ racine }}#entreprise",
   "name": "IAboostbiz",
-  "url": "https://iaboostbiz.online/",
-  "logo": "https://iaboostbiz.online/assets/logo-512.png",
-  "image": "https://iaboostbiz.online/assets/partage.png",
+  "url": "{{ racine }}",
+  "logo": "{{ racine }}assets/logo-512.png",
+  "image": "{{ racine }}assets/partage.png",
   "description": {{ T.referencement.description | strip | jsonify }},
   "founder": { "@type": "Person", "name": "Moukassa Perec" },
   "telephone": {{ C.whatsapp_numero | strip | prepend: "+" | jsonify }},
@@ -92,7 +95,7 @@
 <!-- 1. EN-TÊTE : logo + petit bouton WhatsApp -->
 <header class="entete">
   <div class="conteneur">
-    <a class="marque" href="/" aria-label="IAboostbiz, accueil">
+    <a class="marque" href="./" aria-label="IAboostbiz, accueil">
       <img src="assets/logo.svg" width="36" height="36" alt="">
       <span aria-hidden="true">IAboost<span>biz</span></span>
     </a>
@@ -261,7 +264,7 @@
 <!-- 9. PIED DE PAGE -->
 <footer class="pied">
   <div class="conteneur">
-    <a class="marque" href="/" aria-label="IAboostbiz, accueil">
+    <a class="marque" href="./" aria-label="IAboostbiz, accueil">
       <img src="assets/logo.svg" width="36" height="36" alt="">
       <span aria-hidden="true">IAboost<span>biz</span></span>
     </a>

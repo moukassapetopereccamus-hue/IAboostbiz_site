@@ -220,3 +220,25 @@ README.md) : un développeur peut la regénérer en une commande.
 
 WhatsApp garde l'ancienne image en mémoire quelques jours : c'est normal si
 le changement ne se voit pas tout de suite.
+
+
+## 11. Les parties « Bientôt : WhatsApp » et « Rentable, ou nous ne le faisons pas »
+
+Partie : 4 bis. BIENTÔT (cherchez : bientot:, 1 fois)
+
+- titre, texte : le titre et la description du service à venir ;
+- conditions : la liste des conditions de Meta, une par ligne commençant
+  par « - ». Pour en ajouter une, copiez une ligne « - >- » et le texte qui
+  la suit, avec le même décalage ;
+- conclusion : la phrase sous la liste.
+
+Le jour où ce service est prêt, changez simplement le titre (par exemple
+« Votre WhatsApp qui répond pour vous ») et le texte.
+
+Partie : 4 ter. NOTRE RÈGLE (cherchez : regle:, 1 fois)
+
+- mesures : les 4 points mesurés pendant le diagnostic (titre et texte) ;
+- prudence et decision : les deux phrases du cadre bleu en bas.
+
+N'y mettez pas de chiffres ni de prix : les chiffres viennent de chaque
+client, pendant le diagnostic.

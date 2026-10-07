@@ -1,7 +1,9 @@
+---
+---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://iaboostbiz.online/</loc>
-    <lastmod>2026-10-07</lastmod>
+    <loc>{% if site.url and site.url != "" %}{{ site.url }}{{ site.baseurl }}{% else %}https://iaboostbiz.online{% endif %}/</loc>
+    <lastmod>{{ site.time | date: "%Y-%m-%d" }}</lastmod>
   </url>
 </urlset>

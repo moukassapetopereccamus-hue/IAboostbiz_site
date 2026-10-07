@@ -1,4 +1,6 @@
+---
+---
 User-agent: *
 Allow: /
 
-Sitemap: https://iaboostbiz.online/sitemap.xml
+Sitemap: {% if site.url and site.url != "" %}{{ site.url }}{{ site.baseurl }}{% else %}https://iaboostbiz.online{% endif %}/sitemap.xml

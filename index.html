@@ -201,8 +201,28 @@
   </div>
 </section>
 
+<!-- 5 bis. BIENTÔT : WHATSAPP QUI RÉPOND POUR VOUS (avec les conditions de Meta) -->
+<section class="section bientot" aria-labelledby="titre-bientot">
+  <div class="conteneur bientot__grille">
+    <div>
+      <h2 id="titre-bientot">{% include t.html v=T.bientot.titre %}</h2>
+      <p class="intro">{% include t.html v=T.bientot.texte %}</p>
+    </div>
+    <div class="conditions">
+      <h3>{% include t.html v=T.bientot.conditions_titre %}</h3>
+      <p>{% include t.html v=T.bientot.conditions_intro %}</p>
+      <ul>
+        {%- for c in T.bientot.conditions %}
+        <li><svg class="icone" aria-hidden="true"><use href="#i-valide"/></svg><span>{% include t.html v=c %}</span></li>
+        {%- endfor %}
+      </ul>
+      <p class="conditions__fin">{% include t.html v=T.bientot.conclusion %}</p>
+    </div>
+  </div>
+</section>
+
 <!-- 6. COMMENT ÇA SE PASSE -->
-<section class="section" aria-labelledby="titre-etapes">
+<section class="section section--papier" aria-labelledby="titre-etapes">
   <div class="conteneur">
     <h2 id="titre-etapes">{% include t.html v=T.etapes.titre %}</h2>
     <ol class="etapes">
@@ -213,6 +233,24 @@
       </li>
       {%- endfor %}
     </ol>
+  </div>
+</section>
+
+<!-- 6 bis. NOTRE RÈGLE : RENTABLE, OU NOUS NE LE FAISONS PAS -->
+<section class="section regle" aria-labelledby="titre-regle">
+  <div class="conteneur">
+    <h2 id="titre-regle">{% include t.html v=T.regle.titre %}</h2>
+    <p class="intro">{% include t.html v=T.regle.texte %}</p>
+    <h3 class="regle__sous-titre">{% include t.html v=T.regle.mesures_titre %}</h3>
+    <ol class="mesures">
+      {%- for m in T.regle.mesures %}
+      <li><b>{% include t.html v=m.titre %}</b><span>{% include t.html v=m.texte %}</span></li>
+      {%- endfor %}
+    </ol>
+    <div class="decision">
+      <p>{% include t.html v=T.regle.prudence %}</p>
+      <p><strong>{% include t.html v=T.regle.decision %}</strong></p>
+    </div>
   </div>
 </section>
 

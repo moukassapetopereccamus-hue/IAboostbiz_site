@@ -217,8 +217,79 @@ services:
   sur_demande_debut: >-
     Sur demande :
   sur_demande: >-
-    réponses automatiques WhatsApp, rappels de rendez-vous, confirmations de
-    commandes.
+    rappels de rendez-vous, confirmations de commandes.
+
+
+# --------------------------------------------------------------------------
+#  4 bis. BIENTÔT : WHATSAPP QUI RÉPOND POUR VOUS
+#  Service à venir. Les conditions sont celles de Meta (propriétaire de
+#  WhatsApp) : ne pas les promettre plus souples qu'elles ne sont.
+# --------------------------------------------------------------------------
+bientot:
+  titre: >-
+    Bientôt : votre WhatsApp qui répond pour vous
+  texte: >-
+    Réponses immédiates aux questions fréquentes, réservations et commandes
+    notées, rappels envoyés la veille. Le tout depuis le numéro WhatsApp de
+    votre entreprise, même quand vous êtes occupé.
+  conditions_titre: >-
+    Réservé aux entreprises établies
+  conditions_intro: >-
+    WhatsApp appartient à Meta, et c'est Meta qui décide quelles entreprises
+    peuvent utiliser ces fonctions. Elle vérifie en général :
+  conditions:
+    - >-
+      une entreprise immatriculée, avec son RCCM ;
+    - >-
+      un site internet ou une page professionnelle sérieuse, au nom de
+      l'entreprise ;
+    - >-
+      une adresse et un numéro de téléphone professionnels.
+  conclusion: >-
+    Vous ne remplissez pas encore ces conditions ? Nous vous le disons dès le
+    diagnostic, avant tout engagement.
+
+
+# --------------------------------------------------------------------------
+#  4 ter. NOTRE RÈGLE : RENTABLE, OU NOUS NE LE FAISONS PAS
+#  Ce que le diagnostic mesure avant toute proposition. Pas de chiffres ici :
+#  les chiffres viennent du client, pendant le diagnostic.
+# --------------------------------------------------------------------------
+regle:
+  titre: >-
+    Rentable, ou nous ne le faisons pas
+  texte: >-
+    Avant de proposer quoi que ce soit, nous calculons avec vous ce que
+    l'automatisation peut vous rapporter. À partir de vos réponses, pas de
+    suppositions.
+  mesures_titre: >-
+    Ce que nous mesurons pendant le diagnostic
+  mesures:
+    - titre: >-
+        Vos demandes
+      texte: >-
+        Combien de messages, d'appels ou de commandes vous recevez par jour.
+    - titre: >-
+        Ce qui vous échappe
+      texte: >-
+        La part qui reste sans réponse à temps, et les ventes qui partent
+        ailleurs.
+    - titre: >-
+        La valeur d'une vente
+      texte: >-
+        Ce que vous rapporte en moyenne un client ou une visite.
+    - titre: >-
+        Votre temps
+      texte: >-
+        Les minutes passées chaque jour à répondre, recopier et faire les
+        comptes.
+  prudence: >-
+    Nous comptons prudemment : nous visons à récupérer une partie des ventes
+    perdues, jamais toutes.
+  decision: >-
+    Si le gain ne couvre pas clairement le coût, nous vous le disons et nous ne
+    lançons rien. Un projet doit être rentable pour vous, et pour nous qui le
+    facturons.
 
 
 # --------------------------------------------------------------------------

@@ -37,6 +37,17 @@
   --duree-entree: 520ms;
   --decel: cubic-bezier(.2, .8, .2, 1);
   --ressort: linear(0, .22 8%, .78 22%, 1.04 36%, 1.06 44%, 1.01 62%, .995 78%, 1);
+  --sortie-douce: cubic-bezier(.22, .61, .36, 1);  /* « power2.out » du skill : apparitions au défilement */
+  --sortie-expo: cubic-bezier(.16, 1, .3, 1);      /* « expo.out » : titres au chargement */
+  --duree-survol: 220ms;                            /* survols : 200 à 250 ms (MASTER) */
+
+  /* --- Dégradé du logo (bleu clair → bleu → bleu foncé) : seule couleur « vive » --- */
+  --degrade: linear-gradient(135deg, #2E6BFF 0%, #2459E0 55%, #1A48B5 100%);
+
+  /* --- Ombres : une seule échelle pour tout le site --- */
+  --ombre-1: 0 2px 6px rgba(11, 18, 32, .08);
+  --ombre-2: 0 14px 30px -14px rgba(11, 18, 32, .35);
+  --ombre-bleue: 0 16px 34px -14px rgba(46, 107, 255, .65);
 }
 
 /* ---------- Police auto-hébergée (Archivo, graisse 400–800, largeur 75–100 %) ---------- */
@@ -102,7 +113,7 @@ time, .chiffres { font-variant-numeric: tabular-nums; }
 /* ---------- Le biseau : coins droits coupés à 45°, comme le « B » ----------
    Fait avec deux dégradés nets (et non clip-path) pour que le contour de
    focus du clavier reste visible. */
-.biseau, .bouton {
+.biseau {
   --fond: var(--bleu);
   background:
     linear-gradient(225deg, transparent var(--biseau), var(--fond) 0) top / 100% 51% no-repeat,
@@ -111,7 +122,6 @@ time, .chiffres { font-variant-numeric: tabular-nums; }
 
 /* ---------- Bouton WhatsApp (le seul bouton du site) ---------- */
 .bouton {
-  --fond: var(--bleu);
   display: inline-flex; align-items: center; justify-content: center; gap: 10px;
   min-height: 56px;
   padding: 14px 30px 14px 24px;
@@ -122,11 +132,22 @@ time, .chiffres { font-variant-numeric: tabular-nums; }
   text-align: center;
   text-decoration: none;
   cursor: pointer;
-  transition: transform var(--duree-appui) var(--decel);
+  position: relative; isolation: isolate;
+  transition: transform var(--duree-survol) var(--decel), filter var(--duree-survol) var(--decel);
 }
-.bouton:hover { --fond: var(--bleu-fonce); color: var(--blanc); }
-/* Appui « mécanique » : le bouton s'enfonce de 2 px et fonce, immédiatement */
-.bouton:active { --fond: var(--bleu-fonce); transform: translate(2px, 2px); }
+/* Le fond du bouton : dégradé du logo, coins biseautés (sur une couche à part
+   pour que le contour de focus du clavier reste entier) */
+.bouton::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: var(--degrade); background-size: 180% 180%; background-position: 0% 0%;
+  clip-path: polygon(0 0, calc(100% - var(--biseau)) 0, 100% var(--biseau), 100% calc(100% - var(--biseau)), calc(100% - var(--biseau)) 100%, 0 100%);
+  transition: background-position var(--duree-survol) var(--decel);
+}
+.bouton:hover { color: var(--blanc); transform: translateY(-2px); filter: drop-shadow(0 10px 14px rgba(46, 107, 255, .45)); }
+.bouton:hover::before { background-position: 100% 100%; }
+/* Appui « mécanique » : le bouton s'enfonce et fonce, immédiatement */
+.bouton:active { transform: translate(2px, 2px); filter: none; transition-duration: var(--duree-appui); }
+.bouton:active::before { background-position: 100% 100%; }
 .bouton .icone { width: 1.15em; height: 1.15em; }
 .bouton--plein { width: 100%; }
 .bouton--petit {
@@ -500,3 +521,150 @@ time, .chiffres { font-variant-numeric: tabular-nums; }
   .accroche__grille { grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
   h1 { font-size: 2.4rem; }
 }
+
+
+/* =====================================================================
+   VERSION 2.1 — LA VIE DU SITE (règles du skill appliquées)
+   ===================================================================== */
+
+/* ---------- Étiquettes biseautées (le motif du site) ---------- */
+.tag {
+  --biseau: 7px; --fond: var(--bleu);
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 3px 14px 3px 9px;
+  font-size: .8125rem; font-weight: 700; line-height: 1.35; color: var(--blanc);
+  background:
+    linear-gradient(225deg, transparent var(--biseau), var(--fond) 0) top / 100% 51% no-repeat,
+    linear-gradient(315deg, transparent var(--biseau), var(--fond) 0) bottom / 100% 51% no-repeat;
+}
+.tag--nuit { --fond: var(--nuit); }
+.tag--fonce { --fond: var(--bleu-fonce); }
+.tag--clair { --fond: var(--bleu-pale); color: var(--bleu-fonce); }
+.tag--contour { --fond: var(--nuit-2); color: var(--gris-clair); }
+
+/* Étiquettes posées sur d'anciens éléments : on retire leur ancien cadre */
+.ecran__etiquette.tag { border: 0; color: var(--gris-clair); }
+.bulle__etiquette.tag { display: flex; width: fit-content; color: var(--blanc); margin-bottom: 8px; font-size: .75rem; }
+
+/* ---------- Indicateur de progression (règle « Funnel » : progress indicator) ---------- */
+.progression {
+  position: absolute; left: 0; right: 0; bottom: -1px; height: 3px;
+  background: var(--degrade); transform-origin: 0 50%; transform: scaleX(0);
+}
+@supports (animation-timeline: scroll()) {
+  .progression { animation: progression linear both; animation-timeline: scroll(root); }
+}
+@keyframes progression { to { transform: scaleX(1); } }
+@supports not (animation-timeline: scroll()) { .progression { display: none; } }
+
+/* ---------- Héros : lueur bleue du logo derrière le téléphone ---------- */
+.accroche::before {
+  content: ""; position: absolute; pointer-events: none;
+  width: 560px; height: 560px; right: -120px; top: 40px;
+  background: radial-gradient(closest-side, rgba(46, 107, 255, .28), transparent);
+}
+@media (max-width: 959px) { .accroche::before { right: -200px; top: auto; bottom: -160px; } }
+.ecran__cadre { box-shadow: var(--ombre-bleue); }
+
+/* ---------- Le problème : numéros en étiquettes, survol ---------- */
+.situation { transition: background-color var(--duree-survol) var(--decel); }
+.situation::before {
+  justify-self: start; align-self: start;
+  font-size: 1.25rem; padding: 4px 14px 4px 9px; color: var(--blanc);
+  --biseau: 8px; --fond: var(--nuit);
+  background:
+    linear-gradient(225deg, transparent var(--biseau), var(--fond) 0) top / 100% 51% no-repeat,
+    linear-gradient(315deg, transparent var(--biseau), var(--fond) 0) bottom / 100% 51% no-repeat;
+  transition: transform var(--duree-survol) var(--decel);
+}
+.situation { grid-template-columns: 64px 1fr; }
+@media (hover: hover) {
+  .situation:hover::before { --fond: var(--bleu); transform: translateX(4px); }
+}
+.mini-cta {
+  display: inline-flex; align-items: center; gap: 8px; margin-top: 28px; min-height: 44px;
+  font-weight: 700; color: var(--bleu-fonce); text-decoration: none;
+  background: linear-gradient(var(--bleu), var(--bleu)) left bottom / 0% 2px no-repeat;
+  transition: background-size var(--duree-survol) var(--decel), color var(--duree-survol);
+}
+.mini-cta:hover { color: var(--nuit); background-size: 100% 2px; }
+.mini-cta .icone { width: 20px; height: 20px; }
+@media (min-width: 960px) { .probleme .mini-cta { grid-column: 2; justify-self: start; margin-top: 8px; } }
+
+/* ---------- La solution : bande au dégradé du logo ---------- */
+.solution { background: var(--degrade); color: var(--blanc); position: relative; overflow: hidden; }
+.solution .anneau { width: 460px; height: 460px; left: -200px; bottom: -280px; border-color: rgba(255, 255, 255, .22); }
+.solution .conteneur { position: relative; }
+.solution p { color: var(--blanc); }
+.solution :focus-visible { outline-color: var(--blanc); }
+
+/* ---------- Services : étiquettes de rythme, lignes qui réagissent au survol ---------- */
+.service__rythme::before { display: none; }
+.service__rythme .tag { font-size: .95rem; padding: 5px 16px 5px 11px; }
+.service { position: relative; transition: background-color var(--duree-survol) var(--decel); }
+.bulle { transition: transform var(--duree-survol) var(--decel), box-shadow var(--duree-survol) var(--decel); }
+@media (hover: hover) {
+  .service:hover .bulle { transform: translateY(-3px); box-shadow: var(--ombre-2); }
+  .service:hover h3 { color: var(--bleu-fonce); }
+}
+.service h3 { transition: color var(--duree-survol); }
+
+/* ---------- Bientôt : section bleu nuit ---------- */
+.bientot { background: var(--nuit); color: var(--blanc); position: relative; overflow: hidden; }
+.bientot .anneau { width: 380px; height: 380px; right: -160px; top: -160px; }
+.bientot .intro { color: var(--gris-clair); }
+.bientot__titre { display: grid; gap: 14px; justify-items: start; }
+.conditions { background: var(--nuit-2); border-color: var(--filet-nuit); border-top-color: var(--bleu); }
+.conditions > p { color: var(--gris-clair); }
+.conditions .icone { color: var(--bleu-clair); }
+.conditions .conditions__fin { border-top-color: var(--filet-nuit); }
+.bientot :focus-visible { outline-color: var(--blanc); }
+
+/* ---------- Étapes : la ligne qui relie les anneaux se trace ---------- */
+.etape::before { background: var(--blanc); transition: background-color var(--duree-survol), color var(--duree-survol); }
+@media (hover: hover) { .etape:hover::before { background: var(--bleu); color: var(--blanc); } }
+
+/* ---------- Règle : fond bleu pâle ---------- */
+.regle { background: var(--bleu-pale); }
+.mesures li { border-top-color: #CCD8F5; }
+.decision { background: var(--blanc); box-shadow: var(--ombre-2); }
+
+/* ---------- Confiance : survol ---------- */
+.confiance li::before { transition: transform var(--duree-survol) var(--decel); }
+@media (hover: hover) { .confiance li:hover::before { transform: rotate(90deg); } }
+
+/* ---------- Bandeau final : lueur + anneau ---------- */
+.bandeau::before {
+  content: ""; position: absolute; pointer-events: none;
+  width: 620px; height: 620px; left: -220px; top: -260px;
+  background: radial-gradient(closest-side, rgba(46, 107, 255, .26), transparent);
+}
+
+/* ---------- Pied : le logo tourne légèrement au survol ---------- */
+.marque img { transition: transform var(--duree-survol) var(--decel); }
+@media (hover: hover) { .marque:hover img { transform: rotate(-12deg); } }
+
+/* =====================================================================
+   APPARITIONS (préréglage « Scroll Reveal » du skill)
+   400–600 ms, courbe power2.out, 8 éléments décalés au plus, 60 ms d'écart.
+   La classe « rv » est posée par le script : sans script, rien n'est caché.
+   ===================================================================== */
+@media (prefers-reduced-motion: no-preference) {
+  .rv { opacity: 0; transform: translateY(18px); }
+  .rv.vu {
+    opacity: 1; transform: none;
+    transition: opacity .5s var(--sortie-douce), transform .5s var(--sortie-douce);
+    transition-delay: calc(var(--i, 0) * 60ms);
+  }
+  /* Titre au chargement : la grande phrase, puis le reste */
+  .js .accroche h1 { animation: monte .7s var(--sortie-expo) both; }
+  .js .accroche__sous { animation: monte .7s var(--sortie-expo) .08s both; }
+  .js .accroche__action { animation: monte .7s var(--sortie-expo) .16s both; }
+  .js .ecran { animation: monte .8s var(--sortie-expo) .24s both; }
+  .js .accroche .anneau { animation: anneau 1.4s var(--sortie-expo) both; }
+  /* Étapes : le trait qui relie les anneaux se dessine */
+  .etape.rv::after { transform-origin: 0 50%; transform: scaleX(0); transition: transform .6s var(--sortie-douce) .3s; }
+  .etape.rv.vu::after { transform: scaleX(1); }
+}
+@keyframes monte { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+@keyframes anneau { from { opacity: 0; transform: scale(.85); } to { opacity: 1; transform: none; } }

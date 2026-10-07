@@ -81,3 +81,28 @@ personnalisé, particules.
 
 375, 768, 1280 px, paysage, texte 200 %, animations réduites ; contraste AA ; cibles ≥ 44 px ;
 pas de défilement horizontal ; processeur ralenti ×4 + 3G ; vidéo de chaque animation.
+
+---
+
+# Version 2.1 — audit des règles du skill et ce qui a été ajouté
+
+Recherches lancées : `--design-system` (dials 6/5/3), `--domain landing`, `--domain color`,
+`--domain gsap`, `--domain style`, `--domain google-fonts`, lecture de
+`references/quick-reference.md` (§1 à §7) et `references/pro-rules.md`.
+
+| Règle / recommandation du skill | v2 | v2.1 |
+|---|---|---|
+| Funnel : « use progress indicators » | non | barre de progression sous l'en-tête (CSS, suit le défilement) |
+| Funnel : « each step: mini-CTA » | non | « Vous vous reconnaissez ? Parlons-en sur WhatsApp » après le problème |
+| Trust & Authority : navy/grey + bleu de confiance, couleur vive pour l'action | partiel | rythme nuit → clair → dégradé du logo → nuit ; dégradé réservé à l'action et à la bande « solution » |
+| MASTER : « subtle hover 200–250 ms, smooth transitions » | bouton seul | 220 ms partout : bouton (soulève + lueur), lignes de services, numéros, étapes, confiance, liens, logo |
+| Préréglage « Scroll Reveal » : 400–600 ms, power2.out, ≤ 8 éléments décalés | écarté | 500 ms, `cubic-bezier(.22,.61,.36,1)`, 60 ms d'écart, 8 au plus |
+| Préréglage « titres » : expo.out au chargement, titres courts | non | phrase d'accroche, sous-titre, bouton, téléphone en cascade |
+| `elevation-consistent` | non | échelle `--ombre-1`, `--ombre-2`, `--ombre-bleue` |
+| `state-clarity` / `press-feedback` | partiel | survol, appui et focus distincts sur tout ce qui se touche |
+| `stagger-sequence`, `motion-consistency` | partiel | jetons communs de durée et de courbe |
+| `breakpoint-consistency` 375 / 768 / 1024 / 1440 | 375/768/1280 | 375, 768, 1024, 1280, 1440 + paysage |
+| `reduced-motion`, `no-blocking-animation`, `transform-performance` | oui | oui (aucune apparition ni lueur animée si « réduire les animations ») |
+
+Motif conservé et étendu (apprécié par le client) : les **étiquettes biseautées** (`.tag`),
+désormais sur les rythmes des services, les numéros 01–03, « Exemple », « Bientôt ».

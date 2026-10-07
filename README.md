@@ -1,8 +1,10 @@
 # Site IAboostbiz : iaboostbiz.online
 
 Site vitrine d'une seule page pour IAboostbiz (Brazzaville). Pas de framework :
-du HTML, du CSS et une police hébergée ici. Aucun JavaScript. Poids de la page
-environ 60 Ko.
+du HTML, du CSS et une police hébergée ici. Un seul petit script (moins de 1 Ko)
+lance les animations quand elles deviennent visibles ; sans lui, le site s'affiche
+normalement. Poids de la page
+environ 95 Ko, police comprise (environ 62 Ko une fois compressée).
 
 TOUS LES TEXTES sont dans _data/textes.yml, séparés du code. Pour modifier un
 texte, un numéro ou l'e-mail : lisez MODIFIER.md.
@@ -28,9 +30,9 @@ L'apparence : couleurs, tailles, mise en page. Les couleurs et la police sont
 des variables tout en haut du fichier.
 
 fonts/
-La police Public Sans (normale et grasse) et sa licence libre (OFL). Elle est
-hébergée ici plutôt que chez Google : plus rapide sur une connexion lente.
-
+La police Archivo (une seule famille, graisse et largeur variables, réduite aux
+caractères français : 49 Ko) et sa licence libre (OFL). Elle est hébergée ici
+plutôt que chez Google : plus rapide sur une connexion lente.
 assets/logo.svg
 Le logo (rond et « B »), redessiné en format vectoriel à partir de l'image du
 logo : net à toutes les tailles et très léger.

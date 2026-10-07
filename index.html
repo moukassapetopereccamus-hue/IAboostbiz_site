@@ -45,8 +45,8 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
 <!-- Police et style -->
-<link rel="preload" href="fonts/public-sans-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts/public-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/archivo-variable.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.classList.add("js")</script>
 <link rel="stylesheet" href="style.css">
 
 <!-- Fiche d'identité pour Google (ne s'affiche pas sur la page) -->
@@ -78,16 +78,8 @@
 <!-- Icônes (famille Lucide) -->
 <svg width="0" height="0" class="sprite" aria-hidden="true" focusable="false">
   <symbol id="i-message" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
-  <symbol id="i-oeil" viewBox="0 0 24 24"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></symbol>
   <symbol id="i-courrier" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
-  <symbol id="i-cloche" viewBox="0 0 24 24"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/></symbol>
-  <symbol id="i-horloge" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
-  <symbol id="i-calendrier" viewBox="0 0 24 24"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></symbol>
-  <symbol id="i-epingle" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
-  <symbol id="i-personnes" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
-  <symbol id="i-billet" viewBox="0 0 24 24"><rect width="20" height="12" x="2" y="6" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></symbol>
   <symbol id="i-valide" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></symbol>
-  <symbol id="i-texte" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M13 8H7"/><path d="M17 12H7"/></symbol>
 </svg>
 
 <a class="lien-evitement" href="#contenu">Aller au contenu</a>
@@ -97,7 +89,7 @@
   <div class="conteneur">
     <a class="marque" href="./" aria-label="IAboostbiz, accueil">
       <img src="assets/logo.svg" width="36" height="36" alt="">
-      <span aria-hidden="true">IAboost<span>biz</span></span>
+      <b aria-hidden="true">IAboost<span>biz</span></b>
     </a>
     <a class="bouton bouton--petit" href="{{ wa }}" rel="noopener">
       <svg class="icone" aria-hidden="true"><use href="#i-message"/></svg>
@@ -111,6 +103,8 @@
 
 <!-- 2. ACCROCHE : grande phrase, bouton principal, téléphone d'exemple -->
 <section class="accroche" aria-labelledby="titre-accroche">
+  <span class="anneau" aria-hidden="true"></span>
+  <span class="anneau anneau--bleu" aria-hidden="true"></span>
   <div class="conteneur accroche__grille">
     <div>
       <h1 id="titre-accroche">{% include t.html v=T.accroche.titre %}</h1>
@@ -128,14 +122,20 @@
       <figcaption class="ecran__etiquette">{% include t.html v=T.telephone.etiquette %}</figcaption>
       <div class="ecran__cadre">
         <p class="ecran__date">{% include t.html v=T.telephone.jour %}</p>
-        <p class="ecran__heure">{% include t.html v=T.telephone.heure %}</p>
-        {%- for m in T.telephone.messages %}
+        <!-- L'heure avance d'un message à l'autre (heures prises dans les messages) -->
+        <p class="horloge" aria-label="{{ T.telephone.messages.last.heure | strip | escape }}"><span class="horloge__piste" aria-hidden="true" style="--fin: {{ T.telephone.messages.size | minus: 1 }}">
+          {%- for m in T.telephone.messages %}<span>{{ m.heure | strip | escape }}</span>{%- endfor -%}
+        </span></p>
+        <!-- Le message le plus récent est en haut, comme sur un vrai téléphone -->
+        <div class="pile">
+        {%- for m in T.telephone.messages reversed %}
         <div class="notif">
           <p class="notif__tete"><img src="assets/logo.svg" width="20" height="20" alt=""><b>IAboostbiz</b><time>{% include t.html v=m.heure %}</time></p>
           <strong>{% include t.html v=m.titre %}</strong>
           {% include t.html v=m.texte %}
         </div>
         {%- endfor %}
+        </div>
       </div>
     </figure>
   </div>
@@ -146,11 +146,10 @@
   <div class="conteneur">
     <h2 id="titre-probleme">{% include t.html v=T.probleme.titre %}</h2>
     <ul class="situations">
-      {%- assign icones_probleme = "oeil,courrier,horloge" | split: "," %}
       {%- for s in T.probleme.situations %}
       <li class="situation">
-        <svg class="icone" aria-hidden="true"><use href="#i-{{ icones_probleme[forloop.index0] | default: 'horloge' }}"/></svg>
-        <p><b>{% include t.html v=s.titre %}</b>{% include t.html v=s.texte %}</p>
+        <b>{% include t.html v=s.titre %}</b>
+        <p>{% include t.html v=s.texte %}</p>
       </li>
       {%- endfor %}
     </ul>
@@ -173,10 +172,36 @@
 <section class="section section--papier" aria-labelledby="titre-services">
   <div class="conteneur">
     <h2 id="titre-services">{% include t.html v=T.services.titre %}</h2>
+
+    <!-- La semaine (dessin seulement : la même information est écrite juste en dessous) -->
+    <div class="semaine" aria-hidden="true">
+      {%- assign jours = "Lun,Mar,Mer,Jeu,Ven,Sam,Dim" | split: "," %}
+      {%- for jour in jours %}
+      {%- assign j = forloop.index0 %}
+      <div class="semaine__jour">{{ jour }}
+        <div class="semaine__evts">
+          {%- for s in T.services.liste %}
+            {%- if s.icone == "cloche" %}
+              {%- if j == 1 or j == 3 or j == 5 %}<span class="evt evt--alerte biseau" style="--jour: {{ j }}"><span class="evt__nom">{{ s.nom | strip | escape }}</span></span>{%- endif %}
+            {%- elsif j == 0 %}<span class="evt biseau" style="--jour: {{ j }}"><span class="evt__nom">{{ s.nom | strip | escape }}</span></span>
+            {%- endif %}
+          {%- endfor %}
+        </div>
+      </div>
+      {%- endfor %}
+      <span class="semaine__balayage"></span>
+    </div>
+    <ul class="semaine__cle" aria-hidden="true">
+      {%- for s in T.services.liste %}
+      <li><span class="evt biseau{% if s.icone == 'cloche' %} evt--alerte{% endif %}"></span>{{ s.nom | strip | escape }} · {{ s.rythme | strip | escape | downcase }}</li>
+      {%- endfor %}
+    </ul>
+    <p class="semaine__legende">{% include t.html v=T.services.semaine_legende %}</p>
+
     <div class="services">
       {%- for s in T.services.liste %}
-      <article class="service">
-        <p class="service__rythme"><svg class="icone" aria-hidden="true"><use href="#i-{{ s.icone | default: 'calendrier' }}"/></svg>{% include t.html v=s.rythme %}</p>
+      <article class="service{% if s.icone == 'cloche' %} service--alerte{% endif %}">
+        <p class="service__rythme">{% include t.html v=s.rythme %}</p>
         <div class="service__texte">
           <h3>{% include t.html v=s.nom %}</h3>
           <p>{% include t.html v=s.description %}</p>
@@ -244,7 +269,7 @@
     <h3 class="regle__sous-titre">{% include t.html v=T.regle.mesures_titre %}</h3>
     <ol class="mesures">
       {%- for m in T.regle.mesures %}
-      <li><b>{% include t.html v=m.titre %}</b><span>{% include t.html v=m.texte %}</span></li>
+      <li><svg class="coche" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.5l5 5L19.5 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"/></svg><b>{% include t.html v=m.titre %}</b><span>{% include t.html v=m.texte %}</span></li>
       {%- endfor %}
     </ol>
     <div class="decision">
@@ -261,7 +286,6 @@
     <ul class="confiance">
       {%- for c in T.confiance.liste %}
       <li>
-        <svg class="icone" aria-hidden="true"><use href="#i-{{ c.icone | default: 'valide' }}"/></svg>
         <p><b>{% include t.html v=c.titre %}</b>{% include t.html v=c.texte %}</p>
       </li>
       {%- endfor %}
@@ -286,6 +310,7 @@
 
 <!-- 8. BANDEAU FINAL -->
 <section class="bandeau" aria-labelledby="titre-bandeau">
+  <span class="anneau" aria-hidden="true"></span>
   <div class="conteneur">
     <h2 id="titre-bandeau">{% include t.html v=T.bandeau.titre %}</h2>
     <p>{% include t.html v=T.bandeau.texte %}</p>
@@ -304,7 +329,7 @@
   <div class="conteneur">
     <a class="marque" href="./" aria-label="IAboostbiz, accueil">
       <img src="assets/logo.svg" width="36" height="36" alt="">
-      <span aria-hidden="true">IAboost<span>biz</span></span>
+      <b aria-hidden="true">IAboost<span>biz</span></b>
     </a>
     <ul>
       <li><a href="mailto:{{ C.email | strip }}"><svg class="icone" aria-hidden="true"><use href="#i-courrier"/></svg><span>{{ C.email | strip | escape }}</span></a></li>
@@ -314,5 +339,18 @@
   </div>
 </footer>
 
+<!-- Lance chaque animation quand elle devient visible (sans ce script, tout s'affiche directement) -->
+<script>
+(function () {
+  var blocs = document.querySelectorAll(".ecran, .semaine, .mesures");
+  if (!("IntersectionObserver" in window)) { blocs.forEach(function (b) { b.classList.add("vu"); }); return; }
+  var obs = new IntersectionObserver(function (entrees) {
+    entrees.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add("vu"); obs.unobserve(e.target); }
+    });
+  }, { rootMargin: "0px 0px -15% 0px", threshold: 0.5 });
+  blocs.forEach(function (b) { obs.observe(b); });
+})();
+</script>
 </body>
 </html>

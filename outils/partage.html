@@ -3,16 +3,17 @@
      Pour la refaire : ouvrir ce fichier dans Chrome à 1200 × 630 et faire une capture,
      ou lancer « node outils/generer-images.mjs » (voir README.md). -->
 <html lang="fr"><head><meta charset="utf-8"><style>
-@font-face{font-family:A;font-weight:400;src:url(../fonts/public-sans-latin-400-normal.woff2)}
-@font-face{font-family:A;font-weight:700;src:url(../fonts/public-sans-latin-700-normal.woff2)}
+@font-face{font-family:A;font-weight:400 800;font-stretch:75% 100%;src:url(../fonts/archivo-variable.woff2)}
 html,body{margin:0;width:1200px;height:630px;overflow:hidden}
 body{background:#0B1220;color:#fff;font-family:A,sans-serif;display:flex;flex-direction:column;justify-content:space-between;padding:72px 80px;box-sizing:border-box}
-.m{display:flex;align-items:center;gap:22px;font-size:52px;font-weight:700;letter-spacing:-.01em}
-.m img{width:92px;height:92px}.m span{color:#2E6BFF}
-h1{font-size:68px;line-height:1.08;letter-spacing:-.02em;margin:0;max-width:980px}
+.m{display:flex;align-items:center;gap:22px;font-size:54px;font-weight:800;font-stretch:85%;letter-spacing:-.01em}
+.m img{width:92px;height:92px}.m span{color:#5B8CFF}
+h1{font-size:92px;line-height:.98;font-weight:800;font-stretch:75%;letter-spacing:-.01em;margin:0;max-width:1000px}
 .b{display:flex;align-items:center;gap:28px;font-size:30px;color:#C7D3EA}
-.b strong{background:#2E6BFF;color:#fff;border-radius:14px;padding:16px 28px}
+.b strong{color:#fff;padding:16px 34px 16px 28px;background:linear-gradient(225deg,transparent 16px,#2E6BFF 0) top/100% 51% no-repeat,linear-gradient(315deg,transparent 16px,#2E6BFF 0) bottom/100% 51% no-repeat}
+.r{position:absolute;border-radius:50%;border:2px solid #24314A;width:420px;height:420px;right:-200px;top:-250px}.r2{position:absolute;border-radius:50%;border:2px solid #1A48B5;width:300px;height:300px;right:-150px;bottom:-200px}body{position:relative}
 </style></head><body>
+<span class=r></span><span class=r2></span>
 <div class="m"><img src="../assets/logo.svg" alt=""><div>IAboost<span>biz</span></div></div>
 <h1>Votre business tourne même quand vous n'êtes pas disponible.</h1>
 <div class="b"><strong>Diagnostic gratuit sur WhatsApp</strong>Brazzaville · iaboostbiz.online</div>

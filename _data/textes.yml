@@ -86,6 +86,8 @@ accroche:
 #  Ce sont des EXEMPLES, pas de vrais messages : l'étiquette doit le dire.
 # --------------------------------------------------------------------------
 telephone:
+  # L'animation (l'heure qui avance, les messages qui se poussent) est réglée
+  # pour 3 messages : gardez-en 3. Les heures affichées viennent des messages.
   etiquette: >-
     Exemple : votre téléphone un lundi matin
   jour: >-
@@ -210,6 +212,10 @@ services:
       exemple_heure: >-
         Lundi 07:32
 
+  # Phrase sous le dessin de la semaine.
+  semaine_legende: >-
+    Exemple de semaine : les rendez-vous fixes du lundi, et les alertes dès
+    qu'un mail important arrive.
   # Mention au-dessus de chaque exemple.
   etiquette_exemple: >-
     Exemple de message

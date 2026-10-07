@@ -1,3 +1,5 @@
+> **Remplacé par `refonte.md`** (version 2 du design). Gardé pour l'historique des choix.
+
 # Page d'accueil — plan de design (remplace MASTER.md pour cette page)
 
 ## Ce qui change par rapport à MASTER.md, et pourquoi

@@ -22,13 +22,13 @@
 contact:
 
   # Numéro WhatsApp pour les boutons : chiffres seulement, sans + ni espaces.
-  # Au Congo-Brazzaville, on GARDE le 0 : +242 06 915 32 96 s'écrit 242069153296.
+  # Au Congo-Brazzaville, on GARDE le 0 : +242 05 314 27 28 s'écrit 242053142728.
   whatsapp_numero: >-
-    242069153296
+    242053142728
 
   # Le même numéro, écrit comme il doit s'afficher en bas de la page.
   whatsapp_affiche: >-
-    +242 06 915 32 96
+    +242 05 314 27 28
 
   # Le message déjà écrit quand le visiteur clique sur un bouton.
   # Écrivez-le normalement, avec accents et espaces : le site s'occupe du reste.
@@ -51,7 +51,7 @@ bouton:
     Diagnostic gratuit
   # Petite phrase sous le bouton.
   precision: >-
-    15 minutes, sans engagement. Basé à Brazzaville.
+    C'est gratuit et ça ne vous engage à rien. On est à Brazzaville.
 
 
 # --------------------------------------------------------------------------
@@ -60,11 +60,12 @@ bouton:
 referencement:
   # Titre dans Google et dans l'onglet : 60 caractères maximum, garder « Brazzaville ».
   titre: >-
-    IAboostbiz Brazzaville : moins de tâches, plus de business
+    IAboostbiz à Brazzaville, on vous prévient sur WhatsApp
   # Résumé dans Google et dans l'aperçu WhatsApp : 155 caractères maximum.
   description: >-
-    Veille des concurrents, mails importants transmis sur WhatsApp, rapport
-    chaque lundi. Diagnostic gratuit de 15 minutes. Basé à Brazzaville.
+    On garde un œil sur vos concurrents et sur vos mails, et on vous
+    prévient sur WhatsApp. Diagnostic gratuit de 15 minutes, à
+    Brazzaville.
 
 
 # --------------------------------------------------------------------------
@@ -75,10 +76,9 @@ accroche:
   titre: >-
     Votre business tourne même quand vous n'êtes pas disponible.
   sous_titre: >-
-    Nous faisons les tâches répétitives à votre place : surveiller vos
-    concurrents, repérer vos mails importants, faire le point de la semaine.
-    L'essentiel arrive sur votre téléphone. Vous, vous vous occupez de vos
-    clients.
+    Pendant que vous êtes avec vos clients, on regarde ce que font vos
+    concurrents et on lit vos mails pour vous. Quand quelque chose
+    compte, vous le recevez sur WhatsApp.
 
 
 # --------------------------------------------------------------------------
@@ -89,7 +89,7 @@ telephone:
   # L'animation (l'heure qui avance, les messages qui se poussent) est réglée
   # pour 3 messages : gardez-en 3. Les heures affichées viennent des messages.
   etiquette: >-
-    Exemple : votre téléphone un lundi matin
+    Exemple d'un lundi matin sur votre téléphone
   jour: >-
     Lundi
   heure: >-
@@ -100,21 +100,22 @@ telephone:
       titre: >-
         Vos concurrents cette semaine
       texte: >-
-        Le concurrent A fait une promotion jusqu'à samedi. 2 nouveaux avis
-        négatifs chez lui : attente trop longue.
+        Le concurrent A fait une promo jusqu'à samedi. Deux clients
+        se plaignent de l'attente chez lui.
     - heure: >-
         07:31
       titre: >-
         Mail important
       texte: >-
-        Facture du fournisseur reçue par e-mail, à régler avant vendredi.
+        Facture du fournisseur reçue par mail. À régler avant
+        vendredi.
     - heure: >-
         07:32
       titre: >-
         Votre semaine
       texte: >-
-        Meilleur jour : samedi. Ventes en hausse par rapport à la semaine
-        d'avant. À surveiller : le stock de savon.
+        Samedi a été votre meilleur jour. Pensez à recommander du
+        savon.
 
 
 # --------------------------------------------------------------------------
@@ -122,26 +123,29 @@ telephone:
 # --------------------------------------------------------------------------
 probleme:
   titre: >-
-    Ce qui vous fait perdre du temps et de l'argent
+    Ce qui vous fait perdre du temps
   situations:
     - titre: >-
-        Vous l'apprenez trop tard.
+        La promo d'en face, vous l'apprenez trop tard.
       texte: >-
-        Un client vous dit que la boutique d'en face fait une promotion. Elle a
-        commencé il y a dix jours.
+        C'est un client qui vous le dit, à la caisse. La pharmacie
+        d'en face fait une promo depuis dix jours, et vous n'en
+        saviez rien.
     - titre: >-
-        Le mail important est passé inaperçu.
+        Une commande perdue dans les mails.
       texte: >-
-        Une commande ou une facture est arrivée par e-mail. Vous ne l'avez pas
-        vue : vous regardez WhatsApp, pas votre boîte mail.
+        Un client a commandé par mail mardi. Vous l'avez vu jeudi,
+        parce que vous êtes sur WhatsApp toute la journée. Il a
+        acheté ailleurs.
     - titre: >-
-        Le point de la semaine vous prend des heures.
+        Le dimanche soir sur les comptes.
       texte: >-
-        Chaque semaine, vous refaites vos comptes et relisez vos messages à la
-        main pour savoir où vous en êtes.
+        Pour savoir comment s'est passée la semaine, vous reprenez
+        le cahier et vous relisez les messages un par un. Ça prend
+        des heures.
   # Petite invitation sous les situations (lien vers WhatsApp).
   mini_cta: >-
-    Vous vous reconnaissez ? Parlons-en sur WhatsApp
+    Ça vous arrive aussi ? On en parle sur WhatsApp
 
 
 # --------------------------------------------------------------------------
@@ -149,15 +153,16 @@ probleme:
 # --------------------------------------------------------------------------
 solution:
   titre: >-
-    Ce que nous faisons pour vous
+    Ce qu'on fait pour vous
   lignes:
     - >-
-      Nous surveillons, nous trions et nous résumons à votre place.
+      On regarde à votre place ce qui se passe chez vos concurrents et
+      dans votre boîte mail.
     - >-
-      Vous recevez seulement l'essentiel, sur WhatsApp ou Telegram, au moment
-      prévu.
+      Dès qu'il y a quelque chose d'important, on vous l'envoie sur
+      WhatsApp ou Telegram.
     - >-
-      Votre temps revient à votre business.
+      Vous, vous restez avec vos clients.
 
 
 # --------------------------------------------------------------------------
@@ -168,7 +173,7 @@ solution:
 # --------------------------------------------------------------------------
 services:
   titre: >-
-    Trois services, à un rythme que vous connaissez
+    Ce qu'on vous envoie, et quand
   liste:
     - rythme: >-
         Chaque lundi matin
@@ -176,13 +181,14 @@ services:
       nom: >-
         Veille concurrentielle
       description: >-
-        Nous suivons les publications, les promotions et les avis Google de vos
-        concurrents. Vous recevez un résumé d'une page, avec ce que vous pouvez
-        en faire.
+        On suit les publications et les avis Google de vos
+        concurrents. Vous recevez une page qui dit ce qui a changé
+        chez eux, et ce que vous pourriez faire.
       exemple: >-
-        Le concurrent B a publié 3 promotions cette semaine, surtout sur les
-        pagnes. Plusieurs avis Google se plaignent de son accueil. Idée :
-        mettez en avant votre retouche offerte.
+        Le concurrent B a fait trois promos cette semaine, surtout
+        sur les pagnes. Ses clients se plaignent de l'accueil sur
+        Google. Vous pourriez mettre en avant votre retouche
+        offerte.
       exemple_heure: >-
         Lundi 07:30
 
@@ -192,12 +198,12 @@ services:
       nom: >-
         Alertes importantes
       description: >-
-        Les mails qui comptent (factures, commandes, rendez-vous) vous sont
-        transmis sur WhatsApp ou Telegram. Le reste attend tranquillement dans
-        votre boîte.
+        Quand un mail important arrive, une commande ou une facture
+        par exemple, on vous l'envoie tout de suite sur WhatsApp ou
+        Telegram. Les autres restent dans votre boîte.
       exemple: >-
-        Nouvelle commande reçue par e-mail : 20 cartons d'eau minérale,
-        livraison souhaitée jeudi.
+        Nouvelle commande par mail. 20 cartons d'eau minérale, à
+        livrer jeudi.
       exemple_heure: >-
         Mardi 10:14
 
@@ -207,26 +213,27 @@ services:
       nom: >-
         Rapport de la semaine
       description: >-
-        Vos chiffres et l'essentiel de la semaine écoulée, sur une seule page.
-        Lu en deux minutes.
+        Une page avec vos chiffres de la semaine passée. Ça se lit
+        en deux minutes.
       exemple: >-
-        Semaine passée : meilleur jour samedi, ventes en hausse, 3 rendez-vous
-        annulés. À surveiller : le stock de savon.
+        La semaine passée, samedi a été votre meilleur jour. Trois
+        rendez-vous ont été annulés et le stock de savon baisse.
       exemple_heure: >-
         Lundi 07:32
 
   # Phrase sous le dessin de la semaine.
   semaine_legende: >-
-    Exemple de semaine : les rendez-vous fixes du lundi, et les alertes dès
-    qu'un mail important arrive.
+    Exemple de semaine. Le lundi, c'est fixe. Les alertes, elles,
+    partent quand un mail important arrive.
   # Mention au-dessus de chaque exemple.
   etiquette_exemple: >-
     Exemple de message
-  # La ligne sous les services. Le début (avant les deux-points) est en gras.
+  # La ligne sous les services. « sur_demande_debut » s'affiche en gras devant
+  # (laissez-le vide pour ne rien mettre en gras).
   sur_demande_debut: >-
-    Sur demande :
   sur_demande: >-
-    rappels de rendez-vous, confirmations de commandes.
+    On peut aussi envoyer les rappels de rendez-vous et les
+    confirmations de commande, si vous en avez besoin.
 
 
 # --------------------------------------------------------------------------
@@ -241,14 +248,13 @@ bientot:
   titre: >-
     Votre WhatsApp qui répond pour vous
   texte: >-
-    Réponses immédiates aux questions fréquentes, réservations et commandes
-    notées, rappels envoyés la veille. Le tout depuis le numéro WhatsApp de
-    votre entreprise, même quand vous êtes occupé.
+    Votre numéro WhatsApp pro répond aux questions qu'on vous pose tous
+    les jours, même quand vous êtes occupé. On y travaille.
   conditions_titre: >-
-    Réservé aux entreprises établies
+    Pour les entreprises déjà installées
   conditions_intro: >-
-    WhatsApp appartient à Meta, et c'est Meta qui décide quelles entreprises
-    peuvent utiliser ces fonctions. Elle vérifie en général :
+    WhatsApp appartient à Meta, et c'est Meta qui décide qui y a droit.
+    En général, elle demande :
   conditions:
     - >-
       une entreprise immatriculée, avec son RCCM ;
@@ -258,24 +264,24 @@ bientot:
     - >-
       une adresse et un numéro de téléphone professionnels.
   conclusion: >-
-    Vous ne remplissez pas encore ces conditions ? Nous vous le disons dès le
-    diagnostic, avant tout engagement.
+    Il vous manque quelque chose ? On vous le dit pendant le diagnostic,
+    avant que vous payiez quoi que ce soit.
 
 
 # --------------------------------------------------------------------------
-#  4 ter. NOTRE RÈGLE : RENTABLE, OU NOUS NE LE FAISONS PAS
+#  4 ter. NOTRE RÈGLE : ON FAIT LE CALCUL AVANT
 #  Ce que le diagnostic mesure avant toute proposition. Pas de chiffres ici :
 #  les chiffres viennent du client, pendant le diagnostic.
 # --------------------------------------------------------------------------
 regle:
   titre: >-
-    Rentable, ou nous ne le faisons pas
+    On fait le calcul avant
   texte: >-
-    Avant de proposer quoi que ce soit, nous calculons avec vous ce que
-    l'automatisation peut vous rapporter. À partir de vos réponses, pas de
-    suppositions.
+    On regarde avec vous ce que ça peut vous rapporter, avec vos
+    chiffres à vous. C'est seulement après qu'on vous propose quelque
+    chose.
   mesures_titre: >-
-    Ce que nous mesurons pendant le diagnostic
+    Pendant le diagnostic, on regarde
   mesures:
     - titre: >-
         Vos demandes
@@ -284,7 +290,7 @@ regle:
     - titre: >-
         Ce qui vous échappe
       texte: >-
-        La part qui reste sans réponse à temps, et les ventes qui partent
+        Les messages restés sans réponse, et les clients partis
         ailleurs.
     - titre: >-
         La valeur d'une vente
@@ -293,15 +299,14 @@ regle:
     - titre: >-
         Votre temps
       texte: >-
-        Les minutes passées chaque jour à répondre, recopier et faire les
-        comptes.
+        Les heures passées chaque jour à répondre aux messages et à
+        faire les comptes.
   prudence: >-
-    Nous comptons prudemment : nous visons à récupérer une partie des ventes
-    perdues, jamais toutes.
+    On ne vous promet pas de récupérer toutes les ventes perdues.
+    Seulement une partie, et on compte large.
   decision: >-
-    Si le gain ne couvre pas clairement le coût, nous vous le disons et nous ne
-    lançons rien. Un projet doit être rentable pour vous, et pour nous qui le
-    facturons.
+    Si ce que vous gagnez ne paie pas clairement ce que ça coûte, on
+    vous le dit. Et on ne lance rien.
 
 
 # --------------------------------------------------------------------------
@@ -310,26 +315,27 @@ regle:
 # --------------------------------------------------------------------------
 etapes:
   titre: >-
-    Comment ça se passe
+    Comment on travaille ensemble
   liste:
     - titre: >-
         Un diagnostic gratuit de 15 minutes sur WhatsApp
       texte: >-
-        Vous nous expliquez votre activité et ce qui vous prend du temps. Nous
-        écoutons avant de proposer quoi que ce soit.
-      important: >-
-        Si nous ne pouvons pas vous aider, nous vous le disons.
-    - titre: >-
-        La mise en place, validée avec vous
-      texte: >-
-        Vous recevez un devis en FCFA avant de commencer. Vous voyez un exemple
-        de ce que vous allez recevoir, et rien n'est lancé sans votre accord.
+        Vous nous expliquez votre activité et ce qui vous prend du
+        temps. On écoute d'abord, on propose après. Et si on ne peut
+        pas vous aider, on vous le dit.
       important: >-
     - titre: >-
-        Les résultats arrivent sur votre téléphone
+        On vous montre avant de lancer
       texte: >-
-        Sur WhatsApp ou Telegram, au rythme prévu. Rien à installer, rien à
-        apprendre.
+        Vous recevez un devis en FCFA avant qu'on commence. On vous
+        montre un exemple de ce que vous allez recevoir, et on ne
+        lance rien sans votre accord.
+      important: >-
+    - titre: >-
+        Ensuite, ça arrive sur votre téléphone
+      texte: >-
+        Sur WhatsApp ou Telegram, aux jours prévus. Il n'y a rien à
+        installer.
       important: >-
 
 
@@ -339,36 +345,37 @@ etapes:
 # --------------------------------------------------------------------------
 confiance:
   titre: >-
-    Pourquoi nous faire confiance
+    Pourquoi travailler avec nous
   liste:
     - icone: epingle
       titre: >-
-        Un fondateur à Brazzaville
+        On est à Brazzaville
       texte: >-
-        IAboostbiz a été fondé par Moukassa Perec, à Brazzaville. Vous savez à
-        qui vous parlez.
+        IAboostbiz, c'est Moukassa Perec. Vous savez à qui vous
+        parlez, et où le trouver.
     - icone: personnes
       titre: >-
-        Une rencontre en personne si vous préférez
+        On peut se voir
       texte: >-
-        Nous pouvons nous voir à Brazzaville, à votre commerce ou à votre
-        cabinet.
+        Si vous préférez parler en face, on passe à votre commerce
+        ou à votre cabinet.
     - icone: billet
       titre: >-
-        Un prix en FCFA, annoncé avant
+        Le prix, vous le connaissez avant
       texte: >-
-        Devis en FCFA, annoncé avant de commencer. Pas de surprise.
+        Le devis est en FCFA et vous l'avez avant qu'on commence.
+        Pas de mauvaise surprise.
     - icone: valide
       titre: >-
-        Vous validez avant le lancement
+        Rien ne démarre sans votre accord
       texte: >-
-        Vous voyez ce que vous allez recevoir et vous donnez votre accord avant
-        que tout démarre.
+        Vous voyez d'abord ce que vous allez recevoir. Si ça ne vous
+        convient pas, on ajuste.
     - icone: texte
       titre: >-
-        Sans jargon
+        Pas de jargon
       texte: >-
-        Nous parlons de vos clients, de vos ventes et de votre temps. Pas de
+        On vous parle de vos clients et de vos ventes. Pas de
         technique.
 
 
@@ -395,10 +402,10 @@ temoignages:
 # --------------------------------------------------------------------------
 bandeau:
   titre: >-
-    Et si lundi prochain, l'essentiel de votre semaine vous attendait déjà ?
+    On commence par 15 minutes sur WhatsApp
   texte: >-
-    Commencez par 15 minutes d'échange. C'est gratuit, et vous saurez tout de
-    suite si nous pouvons vous aider.
+    Vous nous dites ce qui vous prend du temps. À la fin, vous saurez si
+    on peut vous aider ou pas.
 
 
 # --------------------------------------------------------------------------

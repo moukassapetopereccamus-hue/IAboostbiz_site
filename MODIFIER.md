@@ -80,17 +80,17 @@ Cherchez : whatsapp_numero
 
 Il apparaît 1 fois. Mettez le nouveau numéro sous cette étiquette, en
 chiffres seulement : sans +, sans espaces. Au Congo-Brazzaville, on garde
-le 0 après 242 : le +242 06 915 32 96 s'écrit 242069153296.
+le 0 après 242 : le +242 05 314 27 28 s'écrit 242053142728.
 
 Puis cherchez : whatsapp_affiche
 
 Il apparaît 1 fois. C'est le numéro tel qu'il s'affiche en bas de la page :
-écrivez-le avec des espaces, par exemple +242 06 915 32 96.
+écrivez-le avec des espaces, par exemple +242 05 314 27 28.
 
 Les 4 boutons et le bas de page se mettent à jour tout seuls.
 
 Pour vérifier un numéro : sur votre téléphone, ouvrez l'adresse
-https://wa.me/ suivie du numéro (par exemple https://wa.me/242069153296).
+https://wa.me/ suivie du numéro (par exemple https://wa.me/242053142728).
 WhatsApp doit ouvrir une conversation avec le bon contact.
 
 
@@ -131,7 +131,7 @@ Chaque service est un bloc qui commence par « - rythme: ». Dans chaque bloc :
 - exemple_heure : l'heure affichée sous l'exemple.
 
 Exemple : pour changer la description de la veille, cherchez
-« Nous suivons les publications » (1 fois) et réécrivez la phrase.
+« On suit les publications » (1 fois) et réécrivez la phrase.
 
 Évitez les montants en FCFA dans les exemples : le visiteur pourrait les
 prendre pour vos prix.
@@ -222,7 +222,7 @@ WhatsApp garde l'ancienne image en mémoire quelques jours : c'est normal si
 le changement ne se voit pas tout de suite.
 
 
-## 11. Les parties « Bientôt : WhatsApp » et « Rentable, ou nous ne le faisons pas »
+## 11. Les parties « Bientôt : WhatsApp » et « On fait le calcul avant »
 
 Partie : 4 bis. BIENTÔT (cherchez : bientot:, 1 fois)
 
@@ -249,5 +249,5 @@ client, pendant le diagnostic.
 
 Partie : 2. LE PROBLÈME (cherchez : mini_cta, 1 fois)
 
-C'est le lien « Vous vous reconnaissez ? Parlons-en sur WhatsApp ». Il ouvre
+C'est le lien « Ça vous arrive aussi ? On en parle sur WhatsApp ». Il ouvre
 WhatsApp avec le même message que les boutons. Changez seulement la phrase.
